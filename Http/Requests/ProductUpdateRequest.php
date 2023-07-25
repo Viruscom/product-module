@@ -59,22 +59,22 @@ class ProductUpdateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'weight.regex'             => trans('shop::admin.products.weight_regex'),
-            'weight.min'               => trans('shop::admin.products.weight_min'),
-            'weight.max'               => trans('shop::admin.products.weight_max'),
-            'width.regex'              => trans('shop::admin.products.width_regex'),
-            'width.min'                => trans('shop::admin.products.width_min'),
-            'width.max'                => trans('shop::admin.products.width_max'),
-            'height.regex'             => trans('shop::admin.products.height_regex'),
-            'height.min'               => trans('shop::admin.products.height_min'),
-            'height.max'               => trans('shop::admin.products.height_max'),
-            'length.regex'             => trans('shop::admin.products.length_regex'),
-            'length.min'               => trans('shop::admin.products.length_min'),
-            'length.max'               => trans('shop::admin.products.length_max'),
-            'price.gt'                 => trans('shop::admin.products.price_greater_than_supplier_delivery_price'),
-            'measure_unit_id.required' => trans('shop::admin.products.measure_unit_id_required'),
-            'measure_unit_id.integer'  => trans('shop::admin.products.measure_unit_id_integer'),
-            'measure_unit_id.exists'   => trans('shop::admin.products.measure_unit_id_exists'),
+            'weight.regex'             => trans('product::admin.products.weight_regex'),
+            'weight.min'               => trans('product::admin.products.weight_min'),
+            'weight.max'               => trans('product::admin.products.weight_max'),
+            'width.regex'              => trans('product::admin.products.width_regex'),
+            'width.min'                => trans('product::admin.products.width_min'),
+            'width.max'                => trans('product::admin.products.width_max'),
+            'height.regex'             => trans('product::admin.products.height_regex'),
+            'height.min'               => trans('product::admin.products.height_min'),
+            'height.max'               => trans('product::admin.products.height_max'),
+            'length.regex'             => trans('product::admin.products.length_regex'),
+            'length.min'               => trans('product::admin.products.length_min'),
+            'length.max'               => trans('product::admin.products.length_max'),
+            'price.gt'                 => trans('product::admin.products.price_greater_than_supplier_delivery_price'),
+            'measure_unit_id.required' => trans('product::admin.products.measure_unit_id_required'),
+            'measure_unit_id.integer'  => trans('product::admin.products.measure_unit_id_integer'),
+            'measure_unit_id.exists'   => trans('product::admin.products.measure_unit_id_exists'),
         ];
     }
 }

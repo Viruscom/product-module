@@ -73,10 +73,10 @@ class ProductCategoriesController extends Controller implements ShopProductCateg
                 }
 
                 if ($model->subCategories->isNotEmpty()) {
-                    return back()->withErrors(['shop::admin.product_categories.error_cant_delete_has_sub_categories']);
+                    return back()->withErrors(['product::admin.product_categories.error_cant_delete_has_sub_categories']);
                 }
                 if ($model->products->isNotEmpty()) {
-                    return back()->withErrors(['shop::admin.product_categories.error_cant_delete_has_products']);
+                    return back()->withErrors(['product::admin.product_categories.error_cant_delete_has_products']);
                 }
 
                 if ($model->existsFile($model->filename)) {
@@ -113,10 +113,10 @@ class ProductCategoriesController extends Controller implements ShopProductCateg
         MainHelper::goBackIfNull($productCategory);
 
         if ($productCategory->subCategories->isNotEmpty()) {
-            return back()->withErrors(['shop::admin.product_categories.error_cant_delete_has_sub_categories']);
+            return back()->withErrors(['product::admin.product_categories.error_cant_delete_has_sub_categories']);
         }
         if ($productCategory->products->isNotEmpty()) {
-            return back()->withErrors(['shop::admin.product_categories.error_cant_delete_has_products']);
+            return back()->withErrors(['product::admin.product_categories.error_cant_delete_has_products']);
         }
 
         if (is_null($productCategory->main_category)) {

@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    @include('shop::admin.settings.measure_units.breadcrumbs')
+    @include('product::admin.settings.measure_units.breadcrumbs')
     @include('admin.notify')
 
     @include('admin.partials.index.top_search_with_mass_buttons', ['mainRoute' => Request::segment(4), 'noMultipleActive' => true])
@@ -44,11 +44,11 @@
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="5" class="no-table-rows">{{ trans('shop::admin.measure_units.no_records') }}</td>
+                            <td colspan="5" class="no-table-rows">{{ trans('product::admin.measure_units.no_records') }}</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="5" class="no-table-rows">{{ trans('shop::admin.measure_units.no_records') }}</td>
+                            <td colspan="5" class="no-table-rows">{{ trans('product::admin.measure_units.no_records') }}</td>
                         </tr>
                     @endif
                     </tbody>

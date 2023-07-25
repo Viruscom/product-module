@@ -4,39 +4,39 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.settings.main.breadcrumbs')
+    @include('product::admin.settings.main.breadcrumbs')
     @include('admin.notify')
 
     <div class="row">
         <div class="col-xs-12">
-            <h3>@lang('shop::admin.shop.settings_index')</h3><br>
-            <div class="alert alert-warning">{!! __('shop::admin.main_settings.warning') !!}</div>
+            <h3>@lang('product::admin.shop.settings_index')</h3><br>
+            <div class="alert alert-warning">{!! __('product::admin.main_settings.warning') !!}</div>
             <div class="settings-icons-wrapper">
                 <div>
                     <a href="{{ route('admin.product.settings.main.index') }}">
                         <img src="{{ asset('admin/assets/images/cart.svg') }}">
-                        <span>{{ __('shop::admin.main_settings.index') }}</span>
+                        <span>{{ __('product::admin.main_settings.index') }}</span>
                     </a>
                 </div>
 
                 <div>
                     <a href="{{ route('payments.index') }}">
                         <img src="{{ asset('admin/assets/images/cart.svg') }}">
-                        <span>{{ __('shop::admin.payments.index') }}</span>
+                        <span>{{ __('product::admin.payments.index') }}</span>
                     </a>
                 </div>
 
                 <div>
                     <a href="{{ route('deliveries.index') }}">
                         <i class="fas fa-truck fa-5x"></i>
-                        <span>{{ __('shop::admin.deliveries.index') }}</span>
+                        <span>{{ __('product::admin.deliveries.index') }}</span>
                     </a>
                 </div>
 
                 <div>
                     <a href="{{ route('zip_codes.index') }}">
                         <img src="{{ asset('admin/assets/images/cart.svg') }}">
-                        <span>{{ __('shop::admin.post_codes.index') }}</span>
+                        <span>{{ __('product::admin.post_codes.index') }}</span>
                     </a>
                 </div>
 

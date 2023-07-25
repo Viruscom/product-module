@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-    @include('shop::admin.products.breadcrumbs')
+    @include('product::admin.products.breadcrumbs')
     @include('admin.notify')
     @include('admin.partials.index.top_search_with_mass_buttons', ['mainRoute' => Request::segment(5)])
 

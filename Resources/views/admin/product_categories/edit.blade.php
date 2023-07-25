@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.product_categories.breadcrumbs')
+    @include('product::admin.product_categories.breadcrumbs')
     @include('admin.notify')
 
     <form class="my-form" action="{{ route('admin.product-categories.update', ['id' => $category->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">

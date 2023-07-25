@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    @include('shop::admin.product_attributes.breadcrumbs')
+    @include('product::admin.product_attributes.breadcrumbs')
     @include('admin.notify')
     <form class="my-form" action="{{ route('admin.measuring-units.update', ['id'=>$unit->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">
         <div class="col-xs-12 p-0">

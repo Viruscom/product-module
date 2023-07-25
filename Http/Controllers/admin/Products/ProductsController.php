@@ -209,7 +209,7 @@ class ProductsController extends Controller implements ShopProductInterface, Pos
         MainHelper::goBackIfNull($product);
 
         if ($action->isProductAdBoxExists($product->id)) {
-            return redirect()->back()->withErrors(['shop::admin.product_adboxes.product_ad_box_already_exists']);
+            return redirect()->back()->withErrors(['product::admin.product_adboxes.product_ad_box_already_exists']);
         }
 
         $action->sendToProductAdbox($product->id);

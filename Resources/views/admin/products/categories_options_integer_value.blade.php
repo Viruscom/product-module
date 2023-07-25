@@ -7,7 +7,7 @@
 @if($category->subCategories->isNotEmpty())
     <optgroup label="{{ $category->title }} - Подкатегории">
         @foreach($category->subCategories as $index => $subCategory)
-            @include('shop::admin.products.categories_options_integer_value', ['category' => $subCategory, 'depth' => [...$depth, $index + 1]])
+            @include('product::admin.products.categories_options_integer_value', ['category' => $subCategory, 'depth' => [...$depth, $index + 1]])
         @endforeach
     </optgroup>
 @endif

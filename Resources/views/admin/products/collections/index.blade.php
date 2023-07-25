@@ -51,7 +51,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.products.collections.breadcrumbs')
+    @include('product::admin.products.collections.breadcrumbs')
     @include('admin.notify')
     <div class="col-xs-12 p-0">
         <div class="bg-grey top-search-bar">

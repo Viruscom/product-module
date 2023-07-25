@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-    @include('shop::admin.products.characteristics.breadcrumbs')
+    @include('product::admin.products.characteristics.breadcrumbs')
     @include('admin.notify')
     <form action="{{ route('admin.products.characteristics-by-product.update', ['id'=> $mainProduct->id]) }}" method="POST">
         @csrf

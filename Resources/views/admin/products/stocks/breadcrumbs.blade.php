@@ -5,7 +5,7 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a href="{{ route('admin.product-stocks.index') }}" class="text-black">@lang('shop::admin.product_stocks.index')</a>
+            <a href="{{ route('admin.product-stocks.index') }}" class="text-black">@lang('product::admin.product_stocks.index')</a>
         </li>
     </ul>
 </div>

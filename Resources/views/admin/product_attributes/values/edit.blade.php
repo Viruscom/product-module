@@ -45,7 +45,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.product_attributes.values.breadcrumbs')
+    @include('product::admin.product_attributes.values.breadcrumbs')
     @include('admin.notify')
     <form class="my-form" action="{{ route('admin.product-attribute.values.update', ['id' => $productAttribute->id, 'value_id' => $productAttributeValue->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">
         <div class="col-xs-12 p-0">

@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.settings.measure_units.breadcrumbs')
+    @include('product::admin.settings.measure_units.breadcrumbs')
     @include('admin.notify')
 
     <form class="my-form" action="{{ route('admin.measuring-units.store') }}" method="POST" data-form-type="store" enctype="multipart/form-data">

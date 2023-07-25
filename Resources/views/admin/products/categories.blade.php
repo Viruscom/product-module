@@ -12,7 +12,7 @@
     </script>
 @endsection
 @section('content')
-    @include('shop::admin.products.breadcrumbs')
+    @include('product::admin.products.breadcrumbs')
     @include('admin.notify')
     <div class="col-md-12 m-b-10">
         <div class="form-group">
@@ -21,7 +21,7 @@
                 <select class="form-control select2 products-select select2-hidden-accessible" name="category_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
                     <option value="" data-select2-id="3">@lang('admin.common.please_select')</option>
                     @foreach($categories as $index => $category)
-                        @include('shop::admin.products.categories_options', ['category' => $category, 'depth' => [$index + 1]])
+                        @include('product::admin.products.categories_options', ['category' => $category, 'depth' => [$index + 1]])
                     @endforeach
                 </select>
 

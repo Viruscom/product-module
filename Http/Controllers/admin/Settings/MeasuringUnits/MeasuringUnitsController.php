@@ -63,7 +63,7 @@ class MeasuringUnitsController extends Controller
                 }
 
                 if ($model->products->isNotEmpty()) {
-                    return back()->withErrors(['shop::admin.measure_units.cant_delete_has_products_associated']);
+                    return back()->withErrors(['product::admin.measure_units.cant_delete_has_products_associated']);
                 }
 
                 $model->delete();
@@ -83,7 +83,7 @@ class MeasuringUnitsController extends Controller
         MainHelper::goBackIfNull($measureUnit);
 
         if ($measureUnit->products->isNotEmpty()) {
-            return back()->withErrors(['shop::admin.measure_units.cant_delete_has_products_associated']);
+            return back()->withErrors(['product::admin.measure_units.cant_delete_has_products_associated']);
         }
 
         $measureUnit->delete();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Requests;
+namespace Modules\Product\Http\Requests;
 
 use App\Helpers\LanguageHelper;
 use Illuminate\Foundation\Http\FormRequest;

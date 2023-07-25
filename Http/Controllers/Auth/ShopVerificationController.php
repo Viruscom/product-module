@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\Auth;
+namespace Modules\Product\Http\Controllers\Auth;
 
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Modules\Shop\Http\Controllers\ShopRegisteredUserController;
+use Modules\Product\Http\Controllers\ShopRegisteredUserController;
 
 class ShopVerificationController extends ShopRegisteredUserController
 {

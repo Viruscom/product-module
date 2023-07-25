@@ -1,15 +1,13 @@
 <?php
 
-namespace Modules\Shop\Actions;
+namespace Modules\Product\Actions;
 
-use App\Classes\ProductHelper;
 use App\Helpers\CacheKeysHelper;
 use App\Helpers\LanguageHelper;
 use App\Models\Files\File;
 use Cache;
 use Illuminate\Http\Request;
 use Modules\AdBoxes\Models\AdBox;
-use Modules\Shop\Entities\AdBoxProduct\AdBoxProduct;
 use Modules\Shop\Entities\Settings\MeasureUnit;
 use Modules\Shop\Models\Admin\Brands\Brand;
 use Modules\Shop\Models\Admin\ProductCategory\Category;
@@ -42,28 +40,6 @@ class ProductAction
         }
     }
 
-    public function isProductAdBoxExists($productId)
-    {
-        return (bool)AdBoxProduct::where('product_id', $productId)->first();
-    }
-    public function sendToProductAdbox($productId): void
-    {
-        $languages = LanguageHelper::getActiveLanguages();
-        $data      = new Request();
-        foreach ($languages as $language) {
-            $data[$language->code] = [
-                'locale'  => $language->code,
-                'visible' => true
-            ];
-        }
-        $data['type']       = AdBoxProduct::$WAITING_ACTION;
-        $data['product_id'] = $productId;
-        $data['position']   = AdBoxProduct::generatePosition($data, 0);
-        $data['active']     = true;
-
-        AdBoxProduct::create($data->all());
-        AdBoxProduct::cacheUpdate();
-    }
     public function createOrUpdateAdditionalFields(Request $request, $product)
     {
         $languages = LanguageHelper::getActiveLanguages();

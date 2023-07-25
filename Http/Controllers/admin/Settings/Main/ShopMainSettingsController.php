@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\Settings\Main;
+namespace Modules\Product\Http\Controllers\admin\Settings\Main;
 
 use App\Http\Controllers\Controller;
 use App\Models\Settings\Post;
 use App\Models\Settings\ShopSetting;
 use Illuminate\Contracts\Support\Renderable;
-use Modules\Shop\Entities\Settings\Country;
-use Modules\Shop\Entities\Settings\Main\CountrySale;
+use Modules\Product\Entities\Settings\Country;
+use Modules\Product\Entities\Settings\Main\CountrySale;
 use Modules\Shop\Http\Requests\Admin\Settings\MainSettingsUpdateRequest;
 
 class ShopMainSettingsController extends Controller
@@ -24,7 +24,7 @@ class ShopMainSettingsController extends Controller
             $postSetting = Post::storeEmptyRow();
         }
 
-        return view('shop::admin.settings.main.index', [
+        return view('product::admin.settings.main.index', [
             'postSetting'    => $postSetting,
             'countries'      => Country::orderBy('name', 'asc')->get(),
             'salesCountries' => CountrySale::pluck('country_id')->toArray(),

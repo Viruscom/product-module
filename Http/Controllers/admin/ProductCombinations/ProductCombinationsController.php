@@ -1,22 +1,22 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\ProductCombinations;
+namespace Modules\Product\Http\Controllers\admin\ProductCombinations;
 
 use App\Helpers\LanguageHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Modules\Shop\Models\Admin\ProductAttribute\ProductAttribute;
-use Modules\Shop\Models\Admin\ProductAttribute\ProductAttributePivot;
-use Modules\Shop\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
-use Modules\Shop\Models\Admin\ProductCombination\ProductCombination;
-use Modules\Shop\Models\Admin\Products\Product;
+use Modules\Product\Models\Admin\ProductAttribute\ProductAttribute;
+use Modules\Product\Models\Admin\ProductAttribute\ProductAttributePivot;
+use Modules\Product\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
+use Modules\Product\Models\Admin\ProductCombination\ProductCombination;
+use Modules\Product\Models\Admin\Products\Product;
 
 class ProductCombinationsController extends Controller
 {
     public function index()
     {
-        return view('shop::admin.product_combinations.index', [
+        return view('product::admin.product_combinations.index', [
             'products'               => Product::with('translations', 'category')->get(),
             'productCombinations'    => ProductCombination::get(),
             'productAttributes'      => ProductAttribute::with('translations', 'values', 'values.translations')->orderBy('position')->get(),
@@ -159,7 +159,7 @@ class ProductCombinationsController extends Controller
             }
         });
 
-        return view('shop::admin.product_combinations.index', [
+        return view('product::admin.product_combinations.index', [
             'products'               => Product::with('translations')->with(['category' => function ($q) {
                 $q->orderBy('position', 'asc');
             }])->get()->sortBy(['category', 'id']),

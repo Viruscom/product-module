@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\Front\RegisteredUser;
+namespace Modules\Product\Http\Controllers\Front\RegisteredUser;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;

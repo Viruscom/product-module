@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\ProductAttribute\Values;
+namespace Modules\Product\Models\Admin\ProductAttribute\Values;
 
 use Illuminate\Database\Eloquent\Model;
 

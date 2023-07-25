@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\Front;
+namespace Modules\Product\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;

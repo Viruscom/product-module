@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\Auth;
+namespace Modules\Product\Http\Controllers\Auth;
 
 use App\Helpers\LanguageHelper;
 use Illuminate\Auth\Events\PasswordReset;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
-use Modules\Shop\Http\Controllers\ShopRegisteredUserController;
+use Modules\Product\Http\Controllers\ShopRegisteredUserController;
 
 class ShopResetPasswordController extends ShopRegisteredUserController
 {

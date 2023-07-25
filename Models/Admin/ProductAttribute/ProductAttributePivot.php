@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\ProductAttribute;
+namespace Modules\Product\Models\Admin\ProductAttribute;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

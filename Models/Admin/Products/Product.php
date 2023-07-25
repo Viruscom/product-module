@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\Products;
+namespace Modules\Product\Models\Admin\Products;
 
 use App\Helpers\AdminHelper;
 use App\Helpers\CacheKeysHelper;
@@ -31,7 +31,7 @@ class Product extends Model implements TranslatableContract, ImageModelInterface
 {
     use Translatable, Scopes, StorageActions, CommonActions, HasGallery;
 
-    public const FILES_PATH     = "images/shop/products";
+    public const FILES_PATH     = "images/products/products";
     const        ALLOW_CATALOGS = true;
     const        ALLOW_ICONS    = true;
     const        ALLOW_LOGOS    = true;

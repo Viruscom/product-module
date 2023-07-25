@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\ProductAttribute\Values;
+namespace Modules\Product\Models\Admin\ProductAttribute\Values;
 
 use App\Helpers\AdminHelper;
 use App\Helpers\FileDimensionHelper;
@@ -18,7 +18,7 @@ class ProductAttributeValue extends Model implements TranslatableContract
 {
     use Translatable, Scopes, CommonActions, StorageActions;
 
-    public const FILES_PATH = "images/shop/products/attribute_values";
+    public const FILES_PATH = "images/products/attribute_values";
     public static string $PRODUCT_ATTRIBUTE_VALUE_SYSTEM_IMAGE  = 'product_attribute_value_img.png';
     public static string $PRODUCT_ATTRIBUTE_VALUE_RATIO         = '1/1';
     public static string $PRODUCT_ATTRIBUTE_VALUE_MIMES         = 'jpg,jpeg,png,gif';

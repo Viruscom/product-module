@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\ProductCategories;
+namespace Modules\Product\Http\Controllers\admin\ProductCategories;
 
 use App\Actions\CommonControllerAction;
 use App\Helpers\CacheKeysHelper;
@@ -11,11 +11,11 @@ use App\Interfaces\PositionInterface;
 use Cache;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Modules\Shop\Http\Requests\ProductCategoryStoreRequest;
-use Modules\Shop\Http\Requests\ProductCategoryUpdateRequest;
-use Modules\Shop\Interfaces\ShopProductCategoryInterface;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
-use Modules\Shop\Models\Admin\ProductCategory\CategoryTranslation;
+use Modules\Product\Http\Requests\ProductCategoryStoreRequest;
+use Modules\Product\Http\Requests\ProductCategoryUpdateRequest;
+use Modules\Product\Interfaces\ShopProductCategoryInterface;
+use Modules\Product\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\ProductCategory\CategoryTranslation;
 
 class ProductCategoriesController extends Controller implements ShopProductCategoryInterface, PositionInterface
 {
@@ -25,7 +25,7 @@ class ProductCategoriesController extends Controller implements ShopProductCateg
             Category::cacheUpdate();
         }
 
-        return view('shop::admin.product_categories.index', ['categories' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN)]);
+        return view('product::admin.product_categories.index', ['categories' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN)]);
     }
     public function store(ProductCategoryStoreRequest $request, CommonControllerAction $action): RedirectResponse
     {
@@ -44,7 +44,7 @@ class ProductCategoriesController extends Controller implements ShopProductCateg
     }
     public function create()
     {
-        return view('shop::admin.product_categories.create', [
+        return view('product::admin.product_categories.create', [
             'languages'     => LanguageHelper::getActiveLanguages(),
             'fileRulesInfo' => Category::getUserInfoMessage(),
             'categories'    => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN)
@@ -55,7 +55,7 @@ class ProductCategoriesController extends Controller implements ShopProductCateg
         $productCategory = Category::whereId($id)->with('translations')->first();
         MainHelper::goBackIfNull($productCategory);
 
-        return view('shop::admin.product_categories.edit', [
+        return view('product::admin.product_categories.edit', [
             'category'      => $productCategory,
             'categories'    => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN),
             'languages'     => LanguageHelper::getActiveLanguages(),
@@ -237,7 +237,7 @@ class ProductCategoriesController extends Controller implements ShopProductCateg
 
         $categories = Category::where('main_category', $productCategory->id)->with('translations')->orderBy('position')->get();
 
-        return view('shop::admin.product_categories.index', ['categories' => $categories, 'mainCategory' => $productCategory]);
+        return view('product::admin.product_categories.index', ['categories' => $categories, 'mainCategory' => $productCategory]);
     }
 
     public function subCategoriesCreate($id)
@@ -245,7 +245,7 @@ class ProductCategoriesController extends Controller implements ShopProductCateg
         $productCategory = Category::find($id);
         MainHelper::goBackIfNull($productCategory);
 
-        return view('shop::admin.product_categories.create', [
+        return view('product::admin.product_categories.create', [
             'languages'     => LanguageHelper::getActiveLanguages(),
             'fileRulesInfo' => Category::getUserInfoMessage(),
             'categories'    => Category::where('main_category', $productCategory->id)->with('translations')->orderBy('position')->get(),

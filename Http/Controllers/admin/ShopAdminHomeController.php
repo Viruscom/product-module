@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin;
+namespace Modules\Product\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
@@ -14,6 +14,6 @@ class ShopAdminHomeController extends Controller
      */
     public function index()
     {
-        return view('shop::admin.dashboard');
+        return view('product::admin.dashboard');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\Settings;
+namespace Modules\Product\Http\Controllers\admin\Settings;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
@@ -14,6 +14,6 @@ class ShopSettingsController extends Controller
      */
     public function index()
     {
-        return view('shop::admin.settings.index');
+        return view('product::admin.settings.index');
     }
 }

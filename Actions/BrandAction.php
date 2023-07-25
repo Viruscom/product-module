@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Actions;
+namespace Modules\Product\Actions;
 
 class BrandAction
 {

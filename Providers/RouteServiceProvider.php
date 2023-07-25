@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Shop\Providers;
+namespace Modules\Product\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $moduleNamespace = 'Modules\Shop\Http\Controllers';
+    protected $moduleNamespace = 'Modules\Product\Http\Controllers';
 
     /**
      * Called before routes are registered.
@@ -37,21 +37,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
     }
-
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
-    protected function mapWebRoutes()
-    {
-        Route::middleware('web')
-            ->namespace($this->moduleNamespace)
-            ->group(module_path('Shop', '/Routes/web.php'));
-    }
-
     /**
      * Define the "api" routes for the application.
      *
@@ -65,5 +50,18 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->moduleNamespace)
             ->group(module_path('Shop', '/Routes/api.php'));
+    }
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->moduleNamespace)
+            ->group(module_path('Shop', '/Routes/web.php'));
     }
 }

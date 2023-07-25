@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\ProductCategory;
+namespace Modules\Product\Models\Admin\ProductCategory;
 
 use App\Helpers\AdminHelper;
 use App\Helpers\CacheKeysHelper;
@@ -24,7 +24,7 @@ class Category extends Model implements TranslatableContract, ImageModelInterfac
 {
     use Translatable, Scopes, StorageActions, CommonActions, HasGallery;
 
-    public const FILES_PATH     = "images/shop/product_categories";
+    public const FILES_PATH     = "images/products/product_categories";
     const        ALLOW_CATALOGS = true;
     const        ALLOW_ICONS    = true;
     const        ALLOW_LOGOS    = true;

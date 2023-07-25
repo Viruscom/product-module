@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\ProductCombination;
+namespace Modules\Product\Models\Admin\ProductCombination;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -66,7 +66,7 @@ class ProductCombination extends Model
 
         return '';
     }
-   
+
     public function product(): BelongsTo
     {
         return $this->belongsto(Product::class, 'product_id', 'id');

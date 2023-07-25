@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Shop\Interfaces;
+namespace Modules\Product\Interfaces;
 
 use App\Actions\CommonControllerAction;
+use Modules\Product\Http\Requests\BrandStoreRequest;
+use Modules\Product\Http\Requests\BrandUpdateRequest;
 use Modules\Shop\Actions\BrandAction;
-use Modules\Shop\Http\Requests\BrandStoreRequest;
-use Modules\Shop\Http\Requests\BrandUpdateRequest;
 
 interface ShopBrandInterface
 {

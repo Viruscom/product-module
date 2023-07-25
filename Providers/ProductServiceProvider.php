@@ -2,11 +2,11 @@
 
 namespace Modules\Shop\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Config;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Shop\Http\Middleware\SetCookieMiddleware;
+use Illuminate\Support\ServiceProvider;
 
-class ShopServiceProvider extends ServiceProvider
+class ProductServiceProvider extends ServiceProvider
 {
     /**
      * @var string $moduleName
@@ -29,20 +29,22 @@ class ShopServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-        $this->app['router']->aliasMiddleware('set.sbuuid', SetCookieMiddleware::class);
-
     }
-
     /**
-     * Register the service provider.
+     * Register translations.
      *
      * @return void
      */
-    public function register()
+    public function registerTranslations()
     {
-        $this->app->register(RouteServiceProvider::class);
-    }
+        $langPath = resource_path('lang/modules/' . $this->moduleNameLower);
 
+        if (is_dir($langPath)) {
+            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
+        } else {
+            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
+        }
+    }
     /**
      * Register config.
      *
@@ -51,8 +53,8 @@ class ShopServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
-        ], 'config');
+                             module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
+                         ], 'config');
         $this->mergeConfigFrom(
             module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
         );
@@ -70,28 +72,31 @@ class ShopServiceProvider extends ServiceProvider
         $sourcePath = module_path($this->moduleName, 'Resources/views');
 
         $this->publishes([
-            $sourcePath => $viewPath
-        ], ['views', $this->moduleNameLower . '-module-views']);
+                             $sourcePath => $viewPath
+                         ], ['views', $this->moduleNameLower . '-module-views']);
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
     }
+    private function getPublishableViewPaths(): array
+    {
+        $paths = [];
+        foreach (Config::get('view.paths') as $path) {
+            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
+                $paths[] = $path . '/modules/' . $this->moduleNameLower;
+            }
+        }
 
+        return $paths;
+    }
     /**
-     * Register translations.
+     * Register the service provider.
      *
      * @return void
      */
-    public function registerTranslations()
+    public function register()
     {
-        $langPath = resource_path('lang/modules/' . $this->moduleNameLower);
-
-        if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
-        } else {
-            $this->loadTranslationsFrom(module_path($this->moduleName, 'Resources/lang'), $this->moduleNameLower);
-        }
+        $this->app->register(RouteServiceProvider::class);
     }
-
     /**
      * Get the services provided by the provider.
      *
@@ -100,16 +105,5 @@ class ShopServiceProvider extends ServiceProvider
     public function provides()
     {
         return [];
-    }
-
-    private function getPublishableViewPaths(): array
-    {
-        $paths = [];
-        foreach (\Config::get('view.paths') as $path) {
-            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
-                $paths[] = $path . '/modules/' . $this->moduleNameLower;
-            }
-        }
-        return $paths;
     }
 }

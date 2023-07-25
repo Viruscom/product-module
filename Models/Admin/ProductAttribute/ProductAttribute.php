@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\ProductAttribute;
+namespace Modules\Product\Models\Admin\ProductAttribute;
 
 use App\Helpers\CacheKeysHelper;
 use App\Helpers\LanguageHelper;

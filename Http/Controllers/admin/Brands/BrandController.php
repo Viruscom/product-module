@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\Brands;
+namespace Modules\Product\Http\Controllers\admin\Brands;
 
 use App\Actions\CommonControllerAction;
 use App\Helpers\CacheKeysHelper;
@@ -11,12 +11,12 @@ use App\Interfaces\PositionInterface;
 use Cache;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Modules\Shop\Actions\BrandAction;
-use Modules\Shop\Http\Requests\BrandStoreRequest;
-use Modules\Shop\Http\Requests\BrandUpdateRequest;
-use Modules\Shop\Interfaces\ShopBrandInterface;
-use Modules\Shop\Models\Admin\Brands\Brand;
-use Modules\Shop\Models\Admin\Brands\BrandTranslation;
+use Modules\Product\Actions\BrandAction;
+use Modules\Product\Http\Requests\BrandStoreRequest;
+use Modules\Product\Http\Requests\BrandUpdateRequest;
+use Modules\Product\Interfaces\ShopBrandInterface;
+use Modules\Product\Models\Admin\Brands\Brand;
+use Modules\Product\Models\Admin\Brands\BrandTranslation;
 
 class BrandController extends Controller implements ShopBrandInterface, PositionInterface
 {
@@ -26,7 +26,7 @@ class BrandController extends Controller implements ShopBrandInterface, Position
             Brand::cacheUpdate();
         }
 
-        return view('shop::admin.brands.index', ['brands' => Cache::get(CacheKeysHelper::$SHOP_BRAND_ADMIN)]);
+        return view('product::admin.brands.index', ['brands' => Cache::get(CacheKeysHelper::$SHOP_BRAND_ADMIN)]);
     }
     public function store(BrandStoreRequest $request, CommonControllerAction $action): RedirectResponse
     {
@@ -46,7 +46,7 @@ class BrandController extends Controller implements ShopBrandInterface, Position
     }
     public function create()
     {
-        return view('shop::admin.brands.create', [
+        return view('product::admin.brands.create', [
             'languages'     => LanguageHelper::getActiveLanguages(),
             'fileRulesInfo' => Brand::getUserInfoMessage(),
             'brands'        => Cache::get(CacheKeysHelper::$SHOP_BRAND_ADMIN)
@@ -57,7 +57,7 @@ class BrandController extends Controller implements ShopBrandInterface, Position
         $brand = Brand::whereId($id)->with('translations')->first();
         MainHelper::goBackIfNull($brand);
 
-        return view('shop::admin.brands.edit', [
+        return view('product::admin.brands.edit', [
             'brand'         => $brand,
             'brands'        => Cache::get(CacheKeysHelper::$SHOP_BRAND_ADMIN),
             'languages'     => LanguageHelper::getActiveLanguages(),

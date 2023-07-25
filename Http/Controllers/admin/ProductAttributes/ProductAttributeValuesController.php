@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\ProductAttributes;
+namespace Modules\Product\Http\Controllers\admin\ProductAttributes;
 
 use App\Actions\CommonControllerAction;
 use App\Helpers\LanguageHelper;
@@ -8,11 +8,11 @@ use App\Helpers\MainHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Modules\Shop\Http\Requests\ProductAttributeValueStoreRequest;
-use Modules\Shop\Models\Admin\ProductAttribute\ProductAttribute;
-use Modules\Shop\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
-use Modules\Shop\Models\Admin\ProductAttribute\Values\ProductAttributeValueTranslation;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
+use Modules\Product\Http\Requests\ProductAttributeValueStoreRequest;
+use Modules\Product\Models\Admin\ProductAttribute\ProductAttribute;
+use Modules\Product\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
+use Modules\Product\Models\Admin\ProductAttribute\Values\ProductAttributeValueTranslation;
+use Modules\Product\Models\Admin\ProductCategory\Category;
 
 class ProductAttributeValuesController extends Controller
 {
@@ -23,7 +23,7 @@ class ProductAttributeValuesController extends Controller
 
         //        dd($productAttribute->values);
 
-        return view('shop::admin.product_attributes.values.index', ['productAttribute' => $productAttribute]);
+        return view('product::admin.product_attributes.values.index', ['productAttribute' => $productAttribute]);
     }
     public function store($id, ProductAttributeValueStoreRequest $request, CommonControllerAction $action): RedirectResponse
     {
@@ -50,7 +50,7 @@ class ProductAttributeValuesController extends Controller
         $ProductAttributeValue = ProductAttributeValue::find($value_id);
         MainHelper::goBackIfNull($ProductAttributeValue);
 
-        return view('shop::admin.product_attributes.values.edit', [
+        return view('product::admin.product_attributes.values.edit', [
             'productAttribute'      => $productAttribute,
             'productAttributeValue' => $ProductAttributeValue,
             'languages'             => LanguageHelper::getActiveLanguages(),
@@ -132,7 +132,7 @@ class ProductAttributeValuesController extends Controller
         $productAttribute = ProductAttribute::where('id', $id)->with('values')->first();
         MainHelper::goBackIfNull($productAttribute);
 
-        return view('shop::admin.product_attributes.values.create', [
+        return view('product::admin.product_attributes.values.create', [
             'productAttribute' => $productAttribute,
             'languages'        => LanguageHelper::getActiveLanguages(),
             'fileRulesInfo'    => ''
@@ -193,7 +193,7 @@ class ProductAttributeValuesController extends Controller
 
         $categories = Category::where('main_category', $productCategory->id)->with('translations')->orderBy('position')->get();
 
-        return view('shop::admin.product_categories.index', ['categories' => $categories, 'mainCategory' => $productCategory]);
+        return view('product::admin.product_categories.index', ['categories' => $categories, 'mainCategory' => $productCategory]);
     }
 
     public function subCategoriesCreate($id)
@@ -201,7 +201,7 @@ class ProductAttributeValuesController extends Controller
         $productCategory = Category::find($id);
         MainHelper::goBackIfNull($productCategory);
 
-        return view('shop::admin.product_categories.create', [
+        return view('product::admin.product_categories.create', [
             'languages'     => LanguageHelper::getActiveLanguages(),
             'fileRulesInfo' => Category::getUserInfoMessage(),
             'categories'    => Category::where('main_category', $productCategory->id)->with('translations')->orderBy('position')->get(),

@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\Auth;
+namespace Modules\Product\Http\Controllers\Auth;
 
 use App\Helpers\LanguageHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\URL;
-use Modules\Shop\Emails\ShopPasswordResetEmail;
+use Mail;
+use Modules\Product\Emails\ShopPasswordResetEmail;
 
 class ShopForgotPasswordController extends ShopResetPasswordController
 {
@@ -22,9 +22,9 @@ class ShopForgotPasswordController extends ShopResetPasswordController
         $user        = $broker->getUser($this->credentials(request()));
         $token       = $broker->createToken($user);
         $action_link = route('shop.password.reset', ['languageSlug' => $language->code, 'token' => $token, 'email' => $request->email]);
-        $body = trans('shop::front.login.we_received_a_request_1') . $request->email . trans('shop::front.login.we_received_a_request_2') . url('/') . '. ' . trans('shop::front.login.you_can_reset_password');
+        $body        = trans('shop::front.login.we_received_a_request_1') . $request->email . trans('shop::front.login.we_received_a_request_2') . url('/') . '. ' . trans('shop::front.login.you_can_reset_password');
 
-        \Mail::send('shop::emails.reset_password', ['action_link' => $action_link, 'body' => $body], function ($message) use ($request, $settingsPost) {
+        Mail::send('shop::emails.reset_password', ['action_link' => $action_link, 'body' => $body], function ($message) use ($request, $settingsPost) {
             //TODO: Да се закачи имайла за пращане от системните настройки, да се вземе името на магазина от основните настройки и да се замени тук env
             $message->from($settingsPost->shop_orders_email, env('APP_NAME'));
             $message->to($request->email, 'Your name')
@@ -32,6 +32,10 @@ class ShopForgotPasswordController extends ShopResetPasswordController
         });
 
         return back()->with('success-message', trans('shop::front.login.we_sent_email'));
+    }
+    protected function broker()
+    {
+        return Password::broker('shop_users');
     }
     protected function rules()
     {
@@ -46,10 +50,6 @@ class ShopForgotPasswordController extends ShopResetPasswordController
             'email.email'    => 'The email address is not valid.',
             'email.exists'   => 'The email address is not registered.',
         ];
-    }
-    protected function broker()
-    {
-        return Password::broker('shop_users');
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\Products;
+namespace Modules\Product\Models\Admin\Products;
 
 use App\Helpers\UrlHelper;
 use App\Interfaces\Models\CommonModelTranslationInterfaces;

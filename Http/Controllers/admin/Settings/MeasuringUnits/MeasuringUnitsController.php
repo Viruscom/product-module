@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\Settings\MeasuringUnits;
+namespace Modules\Product\Http\Controllers\admin\Settings\MeasuringUnits;
 
 use App\Actions\CommonControllerAction;
 use App\Helpers\CacheKeysHelper;
@@ -12,10 +12,10 @@ use App\Models\ProductCategory;
 use Cache;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Modules\Shop\Entities\Settings\MeasureUnit;
-use Modules\Shop\Entities\Settings\MeasureUnitTranslation;
-use Modules\Shop\Http\Requests\ProductAttributeStoreRequest;
-use Modules\Shop\Http\Requests\ProductAttributeUpdateRequest;
+use Modules\Product\Entities\Settings\MeasureUnit;
+use Modules\Product\Entities\Settings\MeasureUnitTranslation;
+use Modules\Product\Http\Requests\ProductAttributeStoreRequest;
+use Modules\Product\Http\Requests\ProductAttributeUpdateRequest;
 
 class MeasuringUnitsController extends Controller
 {
@@ -25,7 +25,7 @@ class MeasuringUnitsController extends Controller
             MeasureUnit::cacheUpdate();
         }
 
-        return view('shop::admin.settings.measure_units.index', ['units' => Cache::get(CacheKeysHelper::$SHOP_MEASURE_UNITS_ADMIN)]);
+        return view('product::admin.settings.measure_units.index', ['units' => Cache::get(CacheKeysHelper::$SHOP_MEASURE_UNITS_ADMIN)]);
     }
     public function store(ProductAttributeStoreRequest $request, CommonControllerAction $action): RedirectResponse
     {
@@ -46,7 +46,7 @@ class MeasuringUnitsController extends Controller
             MeasureUnit::cacheUpdate();
         }
 
-        return view('shop::admin.settings.measure_units.edit', [
+        return view('product::admin.settings.measure_units.edit', [
             'unit'      => $measureUnit,
             'languages' => LanguageHelper::getActiveLanguages(),
         ]);
@@ -111,7 +111,7 @@ class MeasuringUnitsController extends Controller
             MeasureUnit::cacheUpdate();
         }
 
-        return view('shop::admin.settings.measure_units.create', [
+        return view('product::admin.settings.measure_units.create', [
             'languages' => LanguageHelper::getActiveLanguages(),
         ]);
     }

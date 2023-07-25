@@ -1,14 +1,13 @@
 <?php
 
-namespace Modules\Shop\Models;
+namespace Modules\Product\Models;
 
 use App\Helpers\AdminHelper;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Shop\Models\Admin\Brands\Brand;
 use Modules\Shop\Models\Admin\ProductCategory\Category;
-use Modules\Shop\Models\Admin\Products\Product;
 
-class Shop extends Model
+class Product extends Model
 {
     public static function allocateModule($viewArray)
     {

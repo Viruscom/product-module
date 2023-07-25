@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers;
+namespace Modules\Product\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Auth;
 use DB;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
-use Modules\Shop\Entities\Settings\City;
-use Modules\Shop\Entities\Settings\Country;
+use Modules\Product\Entities\Settings\City;
+use Modules\Product\Entities\Settings\Country;
 
 class HomeController extends Controller
 {

@@ -1,48 +1,24 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\Products;
+namespace Modules\Product\Models\Admin\Products;
 
-use App\Helpers\AdminHelper;
 use App\Helpers\CacheKeysHelper;
-use App\Helpers\FileDimensionHelper;
-use App\Helpers\SeoHelper;
-use App\Interfaces\Models\ImageModelInterface;
-use App\Models\CategoryPage\CategoryPageTranslation;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Facades\Cache;
-use Modules\Shop\Entities\Settings\VatCategory;
-use Modules\Shop\Models\Admin\Products\ProductAdditionalField;
-use App\Models\Seo;
 use App\Traits\CommonActions;
-use App\Traits\HasGallery;
-use App\Traits\Scopes;
 use App\Traits\StorageActions;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
-use Auth;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Str;
-use Modules\Shop\Models\Admin\Brands\Brand;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Cache;
 use Modules\Shop\Models\Admin\ProductCategory\Category;
-use Modules\ShopDiscounts\Entities\Discount;
 
 class ProductCharacteristic extends Model implements TranslatableContract
 {
     use Translatable, StorageActions, CommonActions;
 
+    public array $translatedAttributes = ['title'];
     protected $table    = 'product_characteristics';
     protected $fillable = ['position', 'active'];
-
-    public array $translatedAttributes = ['title'];
-
-    public function categories(): BelongsToMany
-    {
-        return $this->belongsToMany(Category::class);
-    }
-
     public static function cacheUpdate()
     {
         Cache::forget(CacheKeysHelper::$SHOP_PRODUCT_CHARACTERISTICS);
@@ -51,7 +27,6 @@ class ProductCharacteristic extends Model implements TranslatableContract
             return self::orderBy('position', 'asc')->with('translations')->get();
         });
     }
-
     public static function getRequestData($request): array
     {
         $data = [];
@@ -70,5 +45,9 @@ class ProductCharacteristic extends Model implements TranslatableContract
         }
 
         return $data;
+    }
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
     }
 }

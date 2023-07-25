@@ -1,13 +1,9 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\Products;
+namespace Modules\Product\Models\Admin\Products;
 
-use App\Helpers\UrlHelper;
 use App\Interfaces\Models\CommonModelTranslationInterfaces;
-use App\Models\CategoryPage\CategoryPage;
 use App\Models\Language;
-use App\Models\Pages\PageTranslation;
-use App\Traits\StorageActions;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -22,11 +18,10 @@ class ProductCharacteristicTranslation extends Model implements CommonModelTrans
             'locale' => $language->code,
             'title'  => $request['title_' . $language->code],
         ];
-
     }
     public static function createMissingLanguageRow($language, $request, $model)
     {
-        $data  = [
+        $data = [
             'locale' => $language->code,
             'title'  => $request['title_' . $language->code] . '-' . $language->code,
         ];

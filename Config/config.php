@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'name' => 'Shop',
+    'name' => 'Product',
 ];

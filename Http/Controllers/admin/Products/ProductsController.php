@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\Products;
+namespace Modules\Product\Http\Controllers\admin\Products;
 
 use App\Actions\CommonControllerAction;
 use App\Helpers\CacheKeysHelper;
@@ -15,13 +15,13 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Modules\Catalogs\Models\MainCatalog;
-use Modules\Shop\Actions\ProductAction;
-use Modules\Shop\Http\Requests\ProductStoreRequest;
-use Modules\Shop\Http\Requests\ProductUpdateRequest;
-use Modules\Shop\Interfaces\ShopProductInterface;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
-use Modules\Shop\Models\Admin\Products\Product;
-use Modules\Shop\Models\Admin\Products\ProductTranslation;
+use Modules\Product\Actions\ProductAction;
+use Modules\Product\Http\Requests\ProductStoreRequest;
+use Modules\Product\Http\Requests\ProductUpdateRequest;
+use Modules\Product\Interfaces\ShopProductInterface;
+use Modules\Product\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\Products\Product;
+use Modules\Product\Models\Admin\Products\ProductTranslation;
 
 class ProductsController extends Controller implements ShopProductInterface, PositionInterface
 {
@@ -31,7 +31,7 @@ class ProductsController extends Controller implements ShopProductInterface, Pos
             Category::cacheUpdate();
         }
 
-        return view('shop::admin.products.categories', ['categories' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN)]);
+        return view('product::admin.products.categories', ['categories' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN)]);
     }
     public function store(ProductStoreRequest $request, CommonControllerAction $action, ProductAction $productAction): RedirectResponse
     {
@@ -78,7 +78,7 @@ class ProductsController extends Controller implements ShopProductInterface, Pos
             $data['mainCatalogs'] = cache()->get(CacheKeysHelper::$CATALOGS_MAIN_FRONT);
         }
 
-        return view('shop::admin.products.create', $data);
+        return view('product::admin.products.create', $data);
     }
     public function edit($id, ProductAction $action)
     {
@@ -111,7 +111,7 @@ class ProductsController extends Controller implements ShopProductInterface, Pos
             $data['mainCatalogs'] = cache()->get(CacheKeysHelper::$CATALOGS_MAIN_FRONT);
         }
 
-        return view('shop::admin.products.edit', $data);
+        return view('product::admin.products.edit', $data);
     }
     public function deleteMultiple(Request $request, CommonControllerAction $action): RedirectResponse
     {
@@ -234,7 +234,7 @@ class ProductsController extends Controller implements ShopProductInterface, Pos
         }])->first();
         MainHelper::goBackIfNull($productCategory);
 
-        return view('shop::admin.products.index', [
+        return view('product::admin.products.index', [
             'productCategory' => $productCategory,
             'products'        => $productCategory->products
         ]);

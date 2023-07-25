@@ -1,7 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\Auth;
-
+namespace Modules\Product\Http\Controllers\Auth;
 
 use App\Helpers\LanguageHelper;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;

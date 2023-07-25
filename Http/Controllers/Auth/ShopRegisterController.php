@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\Auth;
+namespace Modules\Product\Http\Controllers\Auth;
 
 use App\Helpers\LanguageHelper;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Modules\Shop\Entities\RegisteredUser\ShopRegisteredUser;
-use Modules\Shop\Http\Controllers\ShopRegisteredUserController;
+use Modules\Product\Entities\RegisteredUser\ShopRegisteredUser;
+use Modules\Product\Http\Controllers\ShopRegisteredUserController;
 
 class ShopRegisterController extends ShopRegisteredUserController
 {

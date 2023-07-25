@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\Products;
+namespace Modules\Product\Http\Controllers\admin\Products;
 
 use App\Actions\CommonControllerAction;
 use App\Helpers\CacheKeysHelper;
@@ -13,13 +13,13 @@ use Cache;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Modules\Shop\Http\Requests\ProductCharacteristicRequest;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
-use Modules\Shop\Models\Admin\Products\Product;
-use Modules\Shop\Models\Admin\Products\ProductCharacteristic;
-use Modules\Shop\Models\Admin\Products\ProductCharacteristicPivot;
-use Modules\Shop\Models\Admin\Products\ProductCharacteristicTranslation;
-use Modules\Shop\Models\Admin\Products\ProductCharacteristicValue;
+use Modules\Product\Http\Requests\ProductCharacteristicRequest;
+use Modules\Product\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\Products\Product;
+use Modules\Product\Models\Admin\Products\ProductCharacteristic;
+use Modules\Product\Models\Admin\Products\ProductCharacteristicPivot;
+use Modules\Product\Models\Admin\Products\ProductCharacteristicTranslation;
+use Modules\Product\Models\Admin\Products\ProductCharacteristicValue;
 
 class ProductCharacteristicsController extends Controller implements PositionInterface
 {
@@ -29,7 +29,7 @@ class ProductCharacteristicsController extends Controller implements PositionInt
             ProductCharacteristic::cacheUpdate();
         }
 
-        return view('shop::admin.products.characteristics.index', ['characteristics' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CHARACTERISTICS)]);
+        return view('product::admin.products.characteristics.index', ['characteristics' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CHARACTERISTICS)]);
     }
     public function store(ProductCharacteristicRequest $request, CommonControllerAction $action)
     {
@@ -59,7 +59,7 @@ class ProductCharacteristicsController extends Controller implements PositionInt
             Category::cacheUpdate();
         }
 
-        return view('shop::admin.products.characteristics.create', [
+        return view('product::admin.products.characteristics.create', [
             'languages'         => LanguageHelper::getActiveLanguages(),
             'characteristics'   => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CHARACTERISTICS),
             'productCategories' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN)
@@ -74,7 +74,7 @@ class ProductCharacteristicsController extends Controller implements PositionInt
             ProductCharacteristic::cacheUpdate();
         }
 
-        return view('shop::admin.products.characteristics.edit', [
+        return view('product::admin.products.characteristics.edit', [
             'productCharacteristic'     => $productCharacteristic,
             'languages'                 => LanguageHelper::getActiveLanguages(),
             'characteristics'           => Cache::get('adminProductCharacteristics'),
@@ -176,7 +176,7 @@ class ProductCharacteristicsController extends Controller implements PositionInt
             return $item;
         });
 
-        return view('shop::admin.products.characteristics.editPerProduct', compact('characteristics', 'mainProduct'));
+        return view('product::admin.products.characteristics.editPerProduct', compact('characteristics', 'mainProduct'));
     }
 
     public function characteristicsByProductIdUpdate($id, Request $request)

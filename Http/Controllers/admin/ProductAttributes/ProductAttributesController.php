@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Http\Controllers\admin\ProductAttributes;
+namespace Modules\Product\Http\Controllers\admin\ProductAttributes;
 
 use App\Actions\CommonControllerAction;
 use App\Helpers\CacheKeysHelper;
@@ -14,13 +14,13 @@ use Cache;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use Modules\Shop\Http\Requests\ProductAttributeStoreRequest;
-use Modules\Shop\Http\Requests\ProductAttributeUpdateRequest;
-use Modules\Shop\Interfaces\ShopProductAttributeInterface;
-use Modules\Shop\Models\Admin\ProductAttribute\ProductAttribute;
-use Modules\Shop\Models\Admin\ProductAttribute\ProductAttributePivot;
-use Modules\Shop\Models\Admin\ProductAttribute\ProductAttributeTranslation;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
+use Modules\Product\Http\Requests\ProductAttributeStoreRequest;
+use Modules\Product\Http\Requests\ProductAttributeUpdateRequest;
+use Modules\Product\Interfaces\ShopProductAttributeInterface;
+use Modules\Product\Models\Admin\ProductAttribute\ProductAttribute;
+use Modules\Product\Models\Admin\ProductAttribute\ProductAttributePivot;
+use Modules\Product\Models\Admin\ProductAttribute\ProductAttributeTranslation;
+use Modules\Product\Models\Admin\ProductCategory\Category;
 
 class ProductAttributesController extends Controller implements ShopProductAttributeInterface, PositionInterface
 {
@@ -30,7 +30,7 @@ class ProductAttributesController extends Controller implements ShopProductAttri
             ProductAttribute::cacheUpdate();
         }
 
-        return view('shop::admin.product_attributes.index', ['productAttributes' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_ATTRIBUTES_ADMIN)]);
+        return view('product::admin.product_attributes.index', ['productAttributes' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_ATTRIBUTES_ADMIN)]);
     }
     public function store(ProductAttributeStoreRequest $request, CommonControllerAction $action): RedirectResponse
     {
@@ -60,7 +60,7 @@ class ProductAttributesController extends Controller implements ShopProductAttri
             Category::cacheUpdate();
         }
 
-        return view('shop::admin.product_attributes.create', [
+        return view('product::admin.product_attributes.create', [
             'languages'         => LanguageHelper::getActiveLanguages(),
             'fileRulesInfo'     => Category::getUserInfoMessage(),
             'productCategories' => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN),
@@ -79,7 +79,7 @@ class ProductAttributesController extends Controller implements ShopProductAttri
             Category::cacheUpdate();
         }
 
-        return view('shop::admin.product_attributes.edit', [
+        return view('product::admin.product_attributes.edit', [
             'productAttribute'          => $productAttribute,
             'languages'                 => LanguageHelper::getActiveLanguages(),
             'productCategories'         => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN),
@@ -174,7 +174,7 @@ class ProductAttributesController extends Controller implements ShopProductAttri
 
         $categories = Category::where('main_category', $productCategory->id)->with('translations')->orderBy('position')->get();
 
-        return view('shop::admin.product_categories.index', ['categories' => $categories, 'mainCategory' => $productCategory]);
+        return view('product::admin.product_categories.index', ['categories' => $categories, 'mainCategory' => $productCategory]);
     }
 
     public function subCategoriesCreate($id)
@@ -182,7 +182,7 @@ class ProductAttributesController extends Controller implements ShopProductAttri
         $productCategory = Category::find($id);
         MainHelper::goBackIfNull($productCategory);
 
-        return view('shop::admin.product_categories.create', [
+        return view('product::admin.product_categories.create', [
             'languages'     => LanguageHelper::getActiveLanguages(),
             'fileRulesInfo' => Category::getUserInfoMessage(),
             'categories'    => Category::where('main_category', $productCategory->id)->with('translations')->orderBy('position')->get(),

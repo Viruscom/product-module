@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Shop\Models\Admin\Brands;
+namespace Modules\Product\Models\Admin\Brands;
 
 use App\Helpers\UrlHelper;
 use App\Interfaces\Models\CommonModelTranslationInterfaces;

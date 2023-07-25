@@ -5,7 +5,7 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a href="{{ route('admin.shop.settings.index') }}" class="text-black">{{ __('shop::admin.main_settings.index') }}</a>
+            <a href="{{ route('admin.product.settings.index') }}" class="text-black">{{ __('shop::admin.main_settings.index') }}</a>
             <i class="fa fa-angle-right"></i>
         </li>
         <li>

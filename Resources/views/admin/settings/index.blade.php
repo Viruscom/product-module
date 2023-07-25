@@ -13,7 +13,7 @@
             <div class="alert alert-warning">{!! __('shop::admin.main_settings.warning') !!}</div>
             <div class="settings-icons-wrapper">
                 <div>
-                    <a href="{{ route('admin.shop.settings.main.index') }}">
+                    <a href="{{ route('admin.product.settings.main.index') }}">
                         <img src="{{ asset('admin/assets/images/cart.svg') }}">
                         <span>{{ __('shop::admin.main_settings.index') }}</span>
                     </a>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div>
-                    <a href="{{ route('admin.shop.settings.internal-integrations.index') }}">
+                    <a href="{{ route('admin.product.settings.internal-integrations.index') }}">
                         <i class="fas fa-rocket fa-5x"></i>
                         <span>{{ __('shop::admin.main_settings.integrations') }}</span>
                     </a>

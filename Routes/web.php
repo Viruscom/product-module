@@ -30,12 +30,12 @@ use Modules\Product\Http\Controllers\admin\Settings\ShopSettingsController;
 Route::group(['prefix' => 'admin/products', 'middleware' => ['auth']], static function () {
     /* Settings */
     Route::group(['prefix' => 'settings'], static function () {
-        Route::get('/', [ShopSettingsController::class, 'index'])->name('admin.shop.settings.index');
+        Route::get('/', [ShopSettingsController::class, 'index'])->name('admin.product.settings.index');
 
         /* Main Settings */
         Route::group(['prefix' => 'main-settings'], static function () {
-            Route::get('/', [ShopMainSettingsController::class, 'index'])->name('admin.shop.settings.main.index');
-            Route::post('update', [ShopMainSettingsController::class, 'update'])->name('admin.shop.settings.main.update');
+            Route::get('/', [ShopMainSettingsController::class, 'index'])->name('admin.product.settings.main.index');
+            Route::post('update', [ShopMainSettingsController::class, 'update'])->name('admin.product.settings.main.update');
         });
 
         /* Measuring Units */

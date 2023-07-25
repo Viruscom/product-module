@@ -33,16 +33,16 @@
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
         <div class="panel-body">
             <ul class="nav">
-                <li><a href="{{ route('admin.shop.orders') }}"><i class="fas fa-box"></i> <span>{!! trans('shop::admin.orders.index') !!}</span></a></li>
+                <li><a href="{{ route('admin.product.orders') }}"><i class="fas fa-box"></i> <span>{!! trans('shop::admin.orders.index') !!}</span></a></li>
                 {{--                <li><a href="{{ url('/admin/shop/not_placed_orders') }}"><img src="{{ asset('admin/assets/images/cart_abandoned.svg') }}" width="20" style="margin-right: 10px;"> <span>{!! trans('shop::admin.abandoned_baskets.index') !!}</span></a></li>--}}
                 <li><a href="{{ route('orders.returns.index') }}"><img src="{{ asset('admin/assets/images/return_order.svg') }}" width="24" alt="" style="margin-right: 12px;"> <span>{!! trans('shop::admin.returned_products.index') !!}</span></a></li>
                 @if(array_key_exists('ShopDiscounts', $activeModules))
                     <li><a href="{{ route('discounts.index') }}"><i class="fas fa-percent"></i> <span>@lang('shop::admin.discounts.index')</span></a></li>
                 @endif
-                <li><a href="{{ route('admin.shop.registered-users.index') }}"><i class="fas fa-user-friends"></i> <span>{!! trans('shop::admin.registered_users.index') !!}</span></a></li>
+                <li><a href="{{ route('admin.product.registered-users.index') }}"><i class="fas fa-user-friends"></i> <span>{!! trans('shop::admin.registered_users.index') !!}</span></a></li>
                 <li><a href="https://main.reklamnipodaraci.com/admin/shop/h-18-reports"><i class="fas fa-user-friends"></i>
                         <span>{{ __('shop::admin.h18_reports.index') }}</span></a></li>
-                <li><a href="{{ route('admin.shop.settings.index') }}"><i class="fas fa-cogs"></i> <span>{!! trans('shop::admin.shop.settings_index') !!}</span></a></li>
+                <li><a href="{{ route('admin.product.settings.index') }}"><i class="fas fa-cogs"></i> <span>{!! trans('shop::admin.shop.settings_index') !!}</span></a></li>
             </ul>
         </div>
     </div>

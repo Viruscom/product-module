@@ -1,9 +1,8 @@
 <?php
 
-namespace Modules\Shop\Providers;
+namespace Modules\Product\Providers;
 
 use Config;
-use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
 
 class ProductServiceProvider extends ServiceProvider
@@ -11,12 +10,12 @@ class ProductServiceProvider extends ServiceProvider
     /**
      * @var string $moduleName
      */
-    protected $moduleName = 'Shop';
+    protected $moduleName = 'Product';
 
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'shop';
+    protected $moduleNameLower = 'product';
 
     /**
      * Boot the application events.

@@ -8,7 +8,7 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Modules\Shop\Models\Admin\Products\Product;
+use Modules\Product\Models\Admin\Products\Product;
 
 class MeasureUnit extends Model implements TranslatableContract
 {

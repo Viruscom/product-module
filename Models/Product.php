@@ -4,8 +4,8 @@ namespace Modules\Product\Models;
 
 use App\Helpers\AdminHelper;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Shop\Models\Admin\Brands\Brand;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\Brands\Brand;
+use Modules\Product\Models\Admin\ProductCategory\Category;
 
 class Product extends Model
 {

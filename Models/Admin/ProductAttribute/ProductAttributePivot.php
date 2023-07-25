@@ -4,7 +4,7 @@ namespace Modules\Product\Models\Admin\ProductAttribute;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\ProductCategory\Category;
 
 class ProductAttributePivot extends Model
 {

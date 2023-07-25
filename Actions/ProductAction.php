@@ -8,10 +8,10 @@ use App\Models\Files\File;
 use Cache;
 use Illuminate\Http\Request;
 use Modules\AdBoxes\Models\AdBox;
-use Modules\Shop\Entities\Settings\MeasureUnit;
-use Modules\Shop\Models\Admin\Brands\Brand;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
-use Modules\Shop\Models\Admin\Products\ProductAdditionalField;
+use Modules\Product\Entities\Settings\MeasureUnit;
+use Modules\Product\Models\Admin\Brands\Brand;
+use Modules\Product\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\Products\ProductAdditionalField;
 
 class ProductAction
 {

@@ -12,7 +12,7 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Modules\Shop\Models\Admin\ProductAttribute\ProductAttribute;
+use Modules\Product\Models\Admin\ProductAttribute\ProductAttribute;
 
 class ProductAttributeValue extends Model implements TranslatableContract
 {

@@ -5,9 +5,9 @@ namespace Modules\Product\Models\Admin\ProductCombination;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Modules\Shop\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
-use Modules\Shop\Models\Admin\Products\Product;
-use Modules\Shop\Models\Admin\Products\ProductCharacteristicTranslation;
+use Modules\Product\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
+use Modules\Product\Models\Admin\Products\Product;
+use Modules\Product\Models\Admin\Products\ProductCharacteristicTranslation;
 
 class ProductCombination extends Model
 {

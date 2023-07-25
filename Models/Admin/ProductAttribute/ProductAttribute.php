@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Modules\Shop\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\ProductAttribute\Values\ProductAttributeValue;
+use Modules\Product\Models\Admin\ProductCategory\Category;
 
 class ProductAttribute extends Model implements TranslatableContract
 {

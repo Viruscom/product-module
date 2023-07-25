@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Settings\Post;
 use App\Models\Settings\ShopSetting;
 use Illuminate\Contracts\Support\Renderable;
-use Modules\Shop\Http\Requests\Admin\Settings\MainSettingsUpdateRequest;
+use Modules\Product\Http\Requests\Admin\Settings\MainSettingsUpdateRequest;
 
 class ShopMainSettingsController extends Controller
 {

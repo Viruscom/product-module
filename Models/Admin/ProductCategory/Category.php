@@ -18,7 +18,7 @@ use Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Modules\Shop\Models\Admin\Products\Product;
+use Modules\Product\Models\Admin\Products\Product;
 
 class Category extends Model implements TranslatableContract, ImageModelInterface
 {

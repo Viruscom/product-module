@@ -10,15 +10,15 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Cache;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\ProductCategory\Category;
 
 class ProductCharacteristic extends Model implements TranslatableContract
 {
     use Translatable, StorageActions, CommonActions;
 
     public array $translatedAttributes = ['title'];
-    protected $table    = 'product_characteristics';
-    protected $fillable = ['position', 'active'];
+    protected    $table                = 'product_characteristics';
+    protected    $fillable             = ['position', 'active'];
     public static function cacheUpdate()
     {
         Cache::forget(CacheKeysHelper::$SHOP_PRODUCT_CHARACTERISTICS);

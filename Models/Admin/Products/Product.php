@@ -20,12 +20,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
-use Modules\Shop\Entities\Settings\MeasureUnit;
-use Modules\Shop\Entities\Settings\VatCategory;
-use Modules\Shop\Models\Admin\Brands\Brand;
-use Modules\Shop\Models\Admin\ProductCategory\Category;
-use Modules\Shop\Models\Admin\ProductCombination\ProductCombination;
-use Modules\ShopDiscounts\Entities\Discount;
+use Modules\Product\Entities\Settings\MeasureUnit;
+use Modules\Product\Models\Admin\Brands\Brand;
+use Modules\Product\Models\Admin\ProductCategory\Category;
+use Modules\Product\Models\Admin\ProductCombination\ProductCombination;
 
 class Product extends Model implements TranslatableContract, ImageModelInterface
 {

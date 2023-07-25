@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Shop\Interfaces;
+namespace Modules\Product\Interfaces;
 
 use App\Actions\CommonControllerAction;
-use Modules\Shop\Actions\ProductAction;
-use Modules\Shop\Http\Requests\ProductStoreRequest;
-use Modules\Shop\Http\Requests\ProductUpdateRequest;
+use Modules\Product\Actions\ProductAction;
+use Modules\Product\Http\Requests\ProductStoreRequest;
+use Modules\Product\Http\Requests\ProductUpdateRequest;
 
 interface ShopProductInterface
 {

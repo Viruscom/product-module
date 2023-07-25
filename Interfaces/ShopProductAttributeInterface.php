@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Shop\Interfaces;
+namespace Modules\Product\Interfaces;
 
 use App\Actions\CommonControllerAction;
-use Modules\Shop\Http\Requests\ProductAttributeStoreRequest;
-use Modules\Shop\Http\Requests\ProductAttributeUpdateRequest;
+use Modules\Product\Http\Requests\ProductAttributeStoreRequest;
+use Modules\Product\Http\Requests\ProductAttributeUpdateRequest;
 
 interface ShopProductAttributeInterface
 {

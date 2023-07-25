@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Shop\Interfaces;
+namespace Modules\Product\Interfaces;
 
 use App\Actions\CommonControllerAction;
-use Modules\Shop\Http\Requests\ProductCategoryStoreRequest;
-use Modules\Shop\Http\Requests\ProductCategoryUpdateRequest;
+use Modules\Product\Http\Requests\ProductCategoryStoreRequest;
+use Modules\Product\Http\Requests\ProductCategoryUpdateRequest;
 
 interface ShopProductCategoryInterface
 {

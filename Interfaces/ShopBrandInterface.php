@@ -3,9 +3,9 @@
 namespace Modules\Product\Interfaces;
 
 use App\Actions\CommonControllerAction;
+use Modules\Product\Actions\BrandAction;
 use Modules\Product\Http\Requests\BrandStoreRequest;
 use Modules\Product\Http\Requests\BrandUpdateRequest;
-use Modules\Shop\Actions\BrandAction;
 
 interface ShopBrandInterface
 {

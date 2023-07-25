@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-    @include('shop::admin.brands.breadcrumbs')
+    @include('product::admin.brands.breadcrumbs')
     @include('admin.notify')
     @include('admin.partials.index.top_search_with_mass_buttons', ['mainRoute' => Request::segment(3)])
 
@@ -65,11 +65,11 @@
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_brands.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_brands.no_records') }}</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_brands.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_brands.no_records') }}</td>
                         </tr>
                     @endif
                     </tbody>

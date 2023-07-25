@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.products.collections.breadcrumbs')
+    @include('product::admin.products.collections.breadcrumbs')
     @include('admin.notify')
     <div class="col-xs-12 p-0">
         <form class="my-form" action="{{ route('admin.product-collections.update', ['id' => $collection->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">

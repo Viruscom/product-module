@@ -32,7 +32,7 @@
         @if(isset($mainCategory))
             <div class="row">
                 <div class="col-xs-12">
-                    <h3>@lang('shop::admin.product_categories.add_sub_category_to'): <strong>{{ $mainCategory->title }}</strong></h3>
+                    <h3>@lang('product::admin.product_categories.add_sub_category_to'): <strong>{{ $mainCategory->title }}</strong></h3>
                 </div>
             </div>
         @endif

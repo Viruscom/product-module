@@ -100,7 +100,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_collections.no_records') }}</td>
+                <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_collections.no_records') }}</td>
             </tr>
         @endif
         </tbody>

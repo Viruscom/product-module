@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    @include('shop::admin.products.characteristics.breadcrumbs')
+    @include('product::admin.products.characteristics.breadcrumbs')
     @include('admin.notify')
     @include('admin.partials.modals.delete_confirm')
 
@@ -51,7 +51,7 @@
 
                     @empty
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_characteristics.no_records_found') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_characteristics.no_records_found') }}</td>
                         </tr>
                     @endforelse
                     </tbody>

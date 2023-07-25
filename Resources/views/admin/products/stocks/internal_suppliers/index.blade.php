@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-    @include('shop::admin.products.stocks.internal_suppliers.breadcrumbs')
+    @include('product::admin.products.stocks.internal_suppliers.breadcrumbs')
     @include('admin.notify')
     <div class="col-xs-12 p-0">
         <div class="bg-grey top-search-bar">
@@ -81,11 +81,11 @@
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.internal_suppliers.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.internal_suppliers.no_records') }}</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.internal_suppliers.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.internal_suppliers.no_records') }}</td>
                         </tr>
                     @endif
                     </tbody>

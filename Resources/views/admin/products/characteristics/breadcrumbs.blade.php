@@ -15,7 +15,7 @@
         @elseif(Request::segment(4) !== null && url()->current() === route('admin.products.edit', ['id' => Request::segment(4)]))
             <li>
                 <i class="fa fa-angle-right"></i>
-                <a href="{{ route('admin.products.characteristics.edit', ['id' => Request::segment(4)]) }}" class="text-purple">{{ __('shop::admin.product_characteristics.edit') }}</a>
+                <a href="{{ route('admin.products.characteristics.edit', ['id' => Request::segment(4)]) }}" class="text-purple">{{ __('product::admin.product_characteristics.edit') }}</a>
             </li>
         @endif
     </ul>

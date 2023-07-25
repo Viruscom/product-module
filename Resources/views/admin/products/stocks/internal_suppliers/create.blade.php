@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.products.stocks.internal_suppliers.breadcrumbs')
+    @include('product::admin.products.stocks.internal_suppliers.breadcrumbs')
     @include('admin.notify')
     <form class="my-form" action="{{ route('admin.product-stocks.internal-suppliers.store') }}" method="POST" data-form-type="store" enctype="multipart/form-data">
         <div class="col-xs-12 p-0">

@@ -33,7 +33,7 @@
                                 </td>
                                 <td class="pull-right">
                                     @include('admin.partials.index.action_buttons', ['mainRoute' => Request::segment(5), 'models' => $productCategory->products, 'model' => $product, 'showInPublicModal' => false])
-                                    <a href="{{ route('admin.products.send-to-product-adboxes', ['id' => $product->id]) }}" class="btn btn-info tooltips" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('shop::admin.products.make_product_adbox')"><i class="fas fa-ad"></i></a>
+                                    <a href="{{ route('admin.products.send-to-product-adboxes', ['id' => $product->id]) }}" class="btn btn-info tooltips" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('product::admin.products.make_product_adbox')"><i class="fas fa-ad"></i></a>
                                 </td>
                             </tr>
                             <tr class="t-row-details row-{{$product->id}}-details hidden">
@@ -48,11 +48,11 @@
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.products.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.products.no_records') }}</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.products.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.products.no_records') }}</td>
                         </tr>
                     @endif
                     </tbody>

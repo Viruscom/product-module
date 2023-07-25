@@ -209,7 +209,7 @@
     </script>
 @endsection
 @section('content')
-    @include('shop::admin.product_combinations.breadcrumbs')
+    @include('product::admin.product_combinations.breadcrumbs')
     @include('admin.notify')
     <div class="col-xs-12 p-0">
         <div class="bg-grey top-search-bar">
@@ -343,7 +343,7 @@
 
                     @else
                         <tr>
-                            <td colspan="7" class="no-table-rows">{{ trans('shop::admin.product_combinations.no_records') }}</td>
+                            <td colspan="7" class="no-table-rows">{{ trans('product::admin.product_combinations.no_records') }}</td>
                         </tr>
                     @endif
                     </tbody>
@@ -358,7 +358,7 @@
         <form action="{{ route('admin.product-combinations.generate') }}" method="POST">
             @csrf
             <div class="mb-1">
-                <label for="main_product_id" class="form-label w-100" style="display: flex">1. @lang('shop::admin.product_combinations.step_1')</label>
+                <label for="main_product_id" class="form-label w-100" style="display: flex">1. @lang('product::admin.product_combinations.step_1')</label>
                 <select name="main_product_id" class="select2 form-control m-b-20 pcombo-mpselect" style="display: flex;width: 100%" id="main_product_id">
                     <option value="">{{ __('admin.common.please_select') }}</option>
                     @foreach($products as $product)
@@ -367,7 +367,7 @@
                 </select>
             </div>
             <div style="margin-top: 20px;margin-bottom: 5px;">
-                <b>2. @lang('shop::admin.product_combinations.step_2')</b>
+                <b>2. @lang('product::admin.product_combinations.step_2')</b>
             </div>
             @if($productAttributes)
                 @foreach($productAttributes as $productAttribute)

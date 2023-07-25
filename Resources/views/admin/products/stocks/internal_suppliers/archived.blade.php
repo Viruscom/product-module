@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 @section('content')
-    @include('shop::admin.products.stocks.internal_suppliers.breadcrumbs')
+    @include('product::admin.products.stocks.internal_suppliers.breadcrumbs')
     @include('admin.notify')
     <div class="col-xs-12 p-0">
         <div class="bg-grey top-search-bar">
@@ -59,17 +59,17 @@
                                 <td class="width-2-percent">{{$i}}</td>
                                 <td>{{ $supplier->title}}</td>
                                 <td class="pull-right">
-                                    <a href="{{ route('admin.product-stocks.internal-suppliers.change-archive-status', ['id' => $supplier->id, 'archived' => 0]) }}" class="btn btn-success tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="@lang('shop::admin.internal_suppliers.dis_archive')" data-trigger="hover"><i class="fas fa-trash-restore-alt"></i></a>
+                                    <a href="{{ route('admin.product-stocks.internal-suppliers.change-archive-status', ['id' => $supplier->id, 'archived' => 0]) }}" class="btn btn-success tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="@lang('product::admin.internal_suppliers.dis_archive')" data-trigger="hover"><i class="fas fa-trash-restore-alt"></i></a>
                                 </td>
                             </tr>
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.internal_suppliers.no_records_archived') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.internal_suppliers.no_records_archived') }}</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.internal_suppliers.no_records_archived') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.internal_suppliers.no_records_archived') }}</td>
                         </tr>
                     @endif
                     </tbody>

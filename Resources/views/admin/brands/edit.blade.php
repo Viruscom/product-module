@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.brands.breadcrumbs')
+    @include('product::admin.brands.breadcrumbs')
     @include('admin.notify')
 
     <form class="my-form" action="{{ route('admin.brands.update', ['id' => $brand->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">

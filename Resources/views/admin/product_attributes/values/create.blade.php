@@ -45,7 +45,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.product_attributes.values.breadcrumbs')
+    @include('product::admin.product_attributes.values.breadcrumbs')
     @include('admin.notify')
 
     <form class="my-form" action="{{ route('admin.product-attribute.values.store', ['id' => $productAttribute->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">
@@ -63,7 +63,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-xs-12">
-                <h4>{{ __('shop::admin.product_attribute_values.create') }}: {{ $productAttribute->title }}</h4>
+                <h4>{{ __('product::admin.product_attribute_values.create') }}: {{ $productAttribute->title }}</h4>
             </div>
             <div class="col-sm-12 col-xs-12">
                 <ul class="nav nav-tabs">
@@ -91,7 +91,7 @@
                 @if($productAttribute->type == 3)
                     <div class="col-sm-6 col-xs-12">
                         <div class="form-group @if($errors->has('color_picker_color')) has-error @endif">
-                            <label for="text-field" class="control-label p-b-10">{{ __('shop::admin.product_attribute_values.color') }}:</label>
+                            <label for="text-field" class="control-label p-b-10">{{ __('product::admin.product_attribute_values.color') }}:</label>
                             <input type="text" id="text-field" class="form-control demo" value="#70c24a" name="color_picker_color" required>
                             @if($errors->has('color_picker_color'))
                                 <span class="help-block">{{ trans($errors->first('color_picker_color')) }}</span>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col-sm-6 col-xs-12">
                         <div class="form-group @if($errors->has('image')) has-error @endif">
-                            <label class="control-label p-b-10">{{ __('shop::admin.product_attribute_values.file') }}:</label>
+                            <label class="control-label p-b-10">{{ __('product::admin.product_attribute_values.file') }}:</label>
                             <input type="file" name="image" class="filestyle" data-buttonText="{{trans('admin.browse_file')}}" data-iconName="fas fa-upload" data-buttonName="btn green" data-badge="true">
                             @if($errors->has('image'))
                                 <span class="help-block">{{ trans($errors->first('image')) }}</span>

@@ -21,7 +21,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.products.breadcrumbs')
+    @include('product::admin.products.breadcrumbs')
     @include('admin.notify')
     <form class="my-form" action="{{ route('admin.products.update', ['id' => $product->id]) }}" method="POST" data-form-type="update" enctype="multipart/form-data">
         <div class="col-xs-12 p-0">
@@ -34,12 +34,12 @@
         </div>
         <div class="col-md-12">
             <div class="form-group">
-                <label class="control-label page-label col-md-3"><span class="text-purple">* </span>@lang('shop::admin.products.attach_to_category'):</label>
+                <label class="control-label page-label col-md-3"><span class="text-purple">* </span>@lang('product::admin.products.attach_to_category'):</label>
                 <div class="col-md-5">
                     <select class="form-control select2 products-select select2-hidden-accessible" name="category_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
                         <option value="" data-select2-id="3">@lang('admin.common.please_select')</option>
                         @foreach($productCategories as $index => $category)
-                            @include('shop::admin.products.categories_options_integer_value', ['category' => $category, 'depth' => [$index + 1]])
+                            @include('product::admin.products.categories_options_integer_value', ['category' => $category, 'depth' => [$index + 1]])
                         @endforeach
                     </select>
                 </div>
@@ -63,7 +63,7 @@
                             @include('admin.partials.on_edit.form_fields.textarea', ['fieldName' => 'description_' . $language->code, 'rows' => 9, 'label' => trans('admin.description'), 'required' => false, 'model' => $productTranslate])
                             @include('admin.partials.on_edit.show_in_language_visibility_checkbox', ['fieldName' => 'visible_' . $language->code, 'model' => $product])
 
-                            @include('shop::admin.products.additional_fields', ['language' => $language, 'maxFields' => 10])
+                            @include('product::admin.products.additional_fields', ['language' => $language, 'maxFields' => 10])
 
                             <div class="additional-textareas-wrapper">
                                 <hr>
@@ -93,14 +93,14 @@
                         <div class="row">
                             <hr>
                             <div class="col-md-6">
-                                <h5><b><i>{{ __('shop::admin.products.main_product_mage') }}</i></b></h5>
+                                <h5><b><i>{{ __('product::admin.products.main_product_mage') }}</i></b></h5>
                                 @include('admin.partials.on_edit.form_fields.upload_file', ['model' => $product, 'deleteRoute' => route('admin.products.delete-image', ['id'=>$product->id])])
                             </div>
 
                             <div class="col-md-6">
-                                <h5><b><i>{{ __('shop::admin.products.product_labels') }}</i></b></h5>
+                                <h5><b><i>{{ __('product::admin.products.product_labels') }}</i></b></h5>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 text-left">{{ __('shop::admin.products.label_new_product') }}:</label>
+                                    <label class="control-label col-md-3 text-left">{{ __('product::admin.products.label_new_product') }}:</label>
                                     <div class="col-md-6">
                                         <label class="switch pull-left">
                                             <input type="checkbox" name="is_new" class="success" data-size="small" {{ old('is_new') ? 'checked' : (($product->is_new) ? 'checked': '') }}>
@@ -110,7 +110,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">{{ __('shop::admin.products.label_promo_product') }}:</label>
+                                    <label class="control-label col-md-3">{{ __('product::admin.products.label_promo_product') }}:</label>
                                     <div class="col-md-6">
                                         <label class="switch pull-left">
                                             <input type="checkbox" name="is_promo" class="success" data-size="small" {{ old('is_promo') ? 'checked' : (($product->is_promo) ? 'checked': '')}}>
@@ -126,24 +126,24 @@
                         </div>
 
                         <div class="col-md-6 p-r-30">
-                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('shop::admin.products.brand'), 'models' => $brands, 'modelId' => $product->brand_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'measure_unit_value', 'label' => trans('shop::admin.products.measure_unit_value'), 'required' => true, 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('shop::admin.products.measure_unit'), 'models' => $measureUnits, 'modelId' => $product->measure_unit_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'supplier_delivery_price', 'label' => trans('shop::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])
-                            @include('admin.partials.on_edit.checkbox', ['fieldName' => 'catalog_from_price', 'label' => __('shop::admin.products.from_price'), 'required' => false, 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'price', 'label' => trans('shop::admin.products.price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.input_integer', ['fieldName' => 'units_in_stock', 'label' => trans('shop::admin.products.units_in_stock'), 'required' => true,'fieldNameValue' => old('units_in_stock') ?: $product->units_in_stock, 'min' => 1, 'max'=> 999999999999])
-                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'sku', 'label' => trans('shop::admin.products.sku_number'), 'required' => false, 'model' => $product])--}}
-                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'barcode', 'label' => trans('shop::admin.products.barcode'), 'required' => false, 'model' => $product])--}}
+                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('product::admin.products.brand'), 'models' => $brands, 'modelId' => $product->brand_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
+                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'measure_unit_value', 'label' => trans('product::admin.products.measure_unit_value'), 'required' => true, 'model' => $product])
+                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'modelId' => $product->measure_unit_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
+                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'supplier_delivery_price', 'label' => trans('product::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])
+                            @include('admin.partials.on_edit.checkbox', ['fieldName' => 'catalog_from_price', 'label' => __('product::admin.products.from_price'), 'required' => false, 'model' => $product])
+                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'price', 'label' => trans('product::admin.products.price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])
+                            @include('admin.partials.on_edit.form_fields.input_integer', ['fieldName' => 'units_in_stock', 'label' => trans('product::admin.products.units_in_stock'), 'required' => true,'fieldNameValue' => old('units_in_stock') ?: $product->units_in_stock, 'min' => 1, 'max'=> 999999999999])
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'sku', 'label' => trans('product::admin.products.sku_number'), 'required' => false, 'model' => $product])--}}
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'barcode', 'label' => trans('product::admin.products.barcode'), 'required' => false, 'model' => $product])--}}
                         </div>
 
                         <div class="col-md-6">
-                            @include('admin.partials.on_edit.checkbox', ['fieldName' => 'catalog_from_discounted_price', 'label' => __('shop::admin.products.from_price'), 'required' => false, 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'catalog_discounted_price', 'label' => __('shop::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100', 'model' => $product])
-                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'weight', 'label' => trans('shop::admin.products.weight'), 'required' => false, 'model' => $product])--}}
-                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'width', 'label' => trans('shop::admin.products.width'), 'required' => false, 'model' => $product])--}}
-                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'height', 'label' => trans('shop::admin.products.height'), 'required' => false, 'model' => $product])--}}
-                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'length', 'label' => trans('shop::admin.products.length'), 'required' => false, 'model' => $product])--}}
+                            @include('admin.partials.on_edit.checkbox', ['fieldName' => 'catalog_from_discounted_price', 'label' => __('product::admin.products.from_price'), 'required' => false, 'model' => $product])
+                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'catalog_discounted_price', 'label' => __('product::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100', 'model' => $product])
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'weight', 'label' => trans('product::admin.products.weight'), 'required' => false, 'model' => $product])--}}
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'width', 'label' => trans('product::admin.products.width'), 'required' => false, 'model' => $product])--}}
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'height', 'label' => trans('product::admin.products.height'), 'required' => false, 'model' => $product])--}}
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'length', 'label' => trans('product::admin.products.length'), 'required' => false, 'model' => $product])--}}
                         </div>
 
                         <div class="row">

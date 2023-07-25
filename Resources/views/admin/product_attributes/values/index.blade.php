@@ -64,7 +64,7 @@
                                 </td>
                                 <td class="width-2-percent">{{$i}}</td>
                                 <td>
-                                    {{ trans('shop::admin.product_attribute_values.attribute') }}: {{ $productAttribute->title }}, {{ trans('shop::admin.product_attribute_values.value') }}: {{ $value->title}}
+                                    {{ trans('product::admin.product_attribute_values.attribute') }}: {{ $productAttribute->title }}, {{ trans('product::admin.product_attribute_values.value') }}: {{ $value->title}}
                                 </td>
                                 <td class="pull-right">
                                     <a href="{{ route('admin.product-attribute.values.edit',['value_id'=>$value->id, 'id'=>$productAttribute->id]) }}" class="btn green" role="button"><i class="fas fa-pencil-alt"></i></a>
@@ -80,11 +80,11 @@
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_attribute_values.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_attribute_values.no_records') }}</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_attribute_values.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_attribute_values.no_records') }}</td>
                         </tr>
                     @endif
                     </tbody>

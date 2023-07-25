@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    @include('shop::admin.products.characteristics.breadcrumbs')
+    @include('product::admin.products.characteristics.breadcrumbs')
     @include('admin.notify')
 
     <form class="my-form" action="{{ route('admin.products.characteristics.store') }}" method="POST" data-form-type="store" enctype="multipart/form-data">

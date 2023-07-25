@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    @include('shop::admin.products.stocks.breadcrumbs')
+    @include('product::admin.products.stocks.breadcrumbs')
     @include('admin.notify')
 
     <div class="col-xs-12 p-0">

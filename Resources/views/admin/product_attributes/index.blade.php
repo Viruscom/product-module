@@ -34,7 +34,7 @@
                                     {{ $attribute->title }}
                                 </td>
                                 <td class="pull-right">
-                                    <a class="btn purple-a" href="{{ route('admin.product-attribute.values.index', ['id' => $attribute->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('shop::admin.product_categories.show_sub_categories')"><i class="fa fa-bars"></i></a>
+                                    <a class="btn purple-a" href="{{ route('admin.product-attribute.values.index', ['id' => $attribute->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('product::admin.product_categories.show_sub_categories')"><i class="fa fa-bars"></i></a>
 
                                     @include('admin.partials.index.action_buttons', ['mainRoute' => Request::segment(3), 'models' => $productAttributes, 'model' => $attribute, 'showInPublicModal' => false])
                                 </td>
@@ -45,11 +45,11 @@
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_attributes.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_attributes.no_records') }}</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('shop::admin.product_attributes.no_records') }}</td>
+                            <td colspan="4" class="no-table-rows">{{ trans('product::admin.product_attributes.no_records') }}</td>
                         </tr>
                     @endif
 

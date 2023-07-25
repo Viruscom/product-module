@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-    @include('shop::admin.product_attributes.breadcrumbs')
+    @include('product::admin.product_attributes.breadcrumbs')
     @include('admin.notify')
 
     <form class="my-form" action="{{ route('admin.product-attributes.store') }}" method="POST" data-form-type="store" enctype="multipart/form-data">

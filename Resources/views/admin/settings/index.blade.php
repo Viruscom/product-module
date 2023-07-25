@@ -43,28 +43,28 @@
                 <div>
                     <a href="{{ route('vats.countries.index') }}">
                         <img src="{{ asset('admin/assets/images/cart.svg') }}">
-                        <span>{{ __('shop::admin.vats.index') }}</span>
+                        <span>{{ __('product::admin.vats.index') }}</span>
                     </a>
                 </div>
 
                 <div>
                     <a href="{{ route('admin.currencies.index') }}" class="text-center">
                         <i class="fas fa-pound-sign fa-5x"></i>
-                        <span>{{ __('shop::admin.currencies.index') }}</span>
+                        <span>{{ __('product::admin.currencies.index') }}</span>
                     </a>
                 </div>
 
                 <div>
                     <a href="{{ route('admin.measuring-units.index') }}">
                         <i class="fas fa-balance-scale-right fa-5x"></i>
-                        <span>{{ __('shop::admin.measure_units.index') }}</span>
+                        <span>{{ __('product::admin.measure_units.index') }}</span>
                     </a>
                 </div>
 
                 <div>
                     <a href="{{ route('admin.product.settings.internal-integrations.index') }}">
                         <i class="fas fa-rocket fa-5x"></i>
-                        <span>{{ __('shop::admin.main_settings.integrations') }}</span>
+                        <span>{{ __('product::admin.main_settings.integrations') }}</span>
                     </a>
                 </div>
             </div>

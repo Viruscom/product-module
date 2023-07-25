@@ -36,7 +36,7 @@
         @if(!is_null($category->main_category))
             <div class="row">
                 <div class="col-xs-12">
-                    <h3>@lang('shop::admin.product_categories.edit_sub_category_to'): <strong>{{ $category->mainCategory->title }}</strong></h3>
+                    <h3>@lang('product::admin.product_categories.edit_sub_category_to'): <strong>{{ $category->mainCategory->title }}</strong></h3>
                 </div>
             </div>
         @endif

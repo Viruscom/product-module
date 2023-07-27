@@ -189,11 +189,11 @@ class Product extends Model
     {
         switch (class_basename($viewArray['currentModel']->parent)) {
             case 'Product':
-                return view('shop::front.products.show', ['viewArray' => $viewArray]);
+                return view('product::front.products.show', ['viewArray' => $viewArray]);
             case 'Brand':
-                return view('shop::front.brands.show', ['viewArray' => $viewArray]);
+                return view('product::front.brands.show', ['viewArray' => $viewArray]);
             case 'Category':
-                return view('shop::front.categories.show', ['viewArray' => $viewArray]);
+                return view('product::front.categories.show', ['viewArray' => $viewArray]);
             default:
                 abort(404);
         }

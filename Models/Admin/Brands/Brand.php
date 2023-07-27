@@ -22,12 +22,12 @@ class Brand extends Model implements TranslatableContract, ImageModelInterface
 {
     use Translatable, Scopes, StorageActions, CommonActions, HasGallery;
 
-    public const FILES_PATH     = "images/shop/brands";
+    public const FILES_PATH     = "images/products/brands";
     const        ALLOW_CATALOGS = true;
     const        ALLOW_ICONS    = true;
     const        ALLOW_LOGOS    = true;
 
-    public static string $BRAND_SYSTEM_IMAGE  = 'shop_1_image.png';
+    public static string $BRAND_SYSTEM_IMAGE  = 'brand_1_image.png';
     public static string $BRAND_RATIO         = '1/1';
     public static string $BRAND_MIMES         = 'jpg,jpeg,png,gif';
     public static string $BRAND_MAX_FILE_SIZE = '3000';

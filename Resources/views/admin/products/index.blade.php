@@ -78,7 +78,6 @@
                                 </td>
                                 <td class="pull-right">
                                     <a href="{{ route('admin.products.send-to-adboxes', ['id' => $product->id]) }}" class="btn btn-info tooltips" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('product::admin.products.make_adbox')"><i class="fas fa-ad"></i></a>
-                                    <a href="{{ route('admin.products.send-to-product-adboxes', ['id' => $product->id]) }}" class="btn btn-info tooltips" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('product::admin.products.make_product_adbox')"><i class="fas fa-ad"></i></a>
                                     <a class="btn purple-a tooltips" href="{{ route('admin.products.characteristics-by-product', ['id' => $product->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Продуктови характеристики"><img src="{{ asset('admin/assets/images/product_characteristics.svg') }}" alt="Характеристики" width="16"></a>
                                     <a class="btn purple-a tooltips" href="{{ route('admin.products.combinations-by-product', ['id' => $product->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Продуктови комбинации"><img src="{{ asset('admin/assets/images/product_combinations.svg') }}" alt="Комбинации" width="16"></a>
 

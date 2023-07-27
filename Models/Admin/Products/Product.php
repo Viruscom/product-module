@@ -34,7 +34,7 @@ class Product extends Model implements TranslatableContract, ImageModelInterface
     const        ALLOW_ICONS    = true;
     const        ALLOW_LOGOS    = true;
 
-    public static string $PRODUCT_SYSTEM_IMAGE  = 'shop_3_image.png';
+    public static string $PRODUCT_SYSTEM_IMAGE  = 'product_3_image.png';
     public static string $PRODUCT_RATIO         = '1/1';
     public static string $PRODUCT_MIMES         = 'jpg,jpeg,png,gif';
     public static string $PRODUCT_MAX_FILE_SIZE = '3000';
@@ -48,11 +48,11 @@ class Product extends Model implements TranslatableContract, ImageModelInterface
 
     public static function getFileRules(): string
     {
-        return FileDimensionHelper::getRules('Shop', 3);
+        return FileDimensionHelper::getRules('Product', 3);
     }
     public static function getUserInfoMessage(): string
     {
-        return FileDimensionHelper::getUserInfoMessage('Shop', 3);
+        return FileDimensionHelper::getUserInfoMessage('Product', 3);
     }
     public static function cacheUpdate(): void
     {
@@ -226,10 +226,7 @@ class Product extends Model implements TranslatableContract, ImageModelInterface
 
         return $request['position'];
     }
-    public function discounts(): HasMany
-    {
-        return $this->hasMany(Discount::class);
-    }
+
     /**
      * @return BelongsTo
      */
@@ -243,56 +240,6 @@ class Product extends Model implements TranslatableContract, ImageModelInterface
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
-    }
-    public function getVat($country, $city)
-    {
-        if (is_null($country) && is_null($city)) {
-            return 0;
-        }
-        $countryId = null;
-        if (!is_null($country)) {
-            $countryId = $country->id;
-        }
-        if (!is_null($city)) {
-            $countryId = $city->country->id;
-        }
-        if (!is_null($countryId)) {
-            $vatCategory = $this->getVatCategory($countryId);
-            if (!is_null($vatCategory)) {
-                if (!is_null($city)) {
-                    $cityVatCategory = $vatCategory->cityVatCategories->where('city_id', $city->id)->first();
-                    if (!is_null($cityVatCategory)) {
-                        return $cityVatCategory->vat;
-                    } else {
-                        $stateVatCategory = $vatCategory->stateVatCategories->where('state_id', $city->state_id)->first();
-                        if (!is_null($stateVatCategory)) {
-                            return $stateVatCategory->vat;
-                        }
-                    }
-                }
-
-                return $vatCategory->vat;
-            }
-        }
-
-        return self::getDefaultVat($country, $city);
-    }
-    public function getVatCategory($countryId)
-    {
-        return $this->hasManyThrough(VatCategory::class, ProductVatCategory::class, 'product_id', 'id', 'id', 'vat_category_id')->where('vat_categories.country_id', $countryId)->first();
-    }
-    private static function getDefaultVat($country, $city)
-    {
-        if ($city != null) {
-            if (!is_null($city->vat)) {
-                return $city->vat;
-            }
-            if (!is_null($city->state->vat)) {
-                return $city->state->vat;
-            }
-        }
-
-        return $country->vat;
     }
     public function getFilepath($filename): string
     {
@@ -373,20 +320,6 @@ class Product extends Model implements TranslatableContract, ImageModelInterface
     public function isPromoProduct(): bool
     {
         return (boolean)$this->is_promo;
-    }
-    public function isInCollection(): bool
-    {
-        //TODO: Make collection check
-        return false;
-    }
-    public function scopeIsInStock($query)
-    {
-        return $query->where('units_in_stock', '>', 0);
-    }
-
-    public function updateUnitsInStock($newQuantity): void
-    {
-        $this->update(['units_in_stock' => $newQuantity]);
     }
     public function additionalFields(): HasMany
     {

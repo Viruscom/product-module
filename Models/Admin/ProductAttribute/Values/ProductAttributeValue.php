@@ -31,11 +31,11 @@ class ProductAttributeValue extends Model implements TranslatableContract
 
     public static function getFileRules(): string
     {
-        return FileDimensionHelper::getRules('Shop', 3);
+        return FileDimensionHelper::getRules('Product', 3);
     }
     public static function getUserInfoMessage(): string
     {
-        return FileDimensionHelper::getUserInfoMessage('Shop', 3);
+        return FileDimensionHelper::getUserInfoMessage('Product', 3);
     }
 
     public static function generatePosition($request): int

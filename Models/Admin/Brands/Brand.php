@@ -37,11 +37,11 @@ class Brand extends Model implements TranslatableContract, ImageModelInterface
     protected    $table                = 'product_brands';
     public static function getFileRules(): string
     {
-        return FileDimensionHelper::getRules('Shop', 1);
+        return FileDimensionHelper::getRules('Product', 1);
     }
     public static function getUserInfoMessage(): string
     {
-        return FileDimensionHelper::getUserInfoMessage('Shop', 1);
+        return FileDimensionHelper::getUserInfoMessage('Product', 1);
     }
     public static function cacheUpdate(): void
     {

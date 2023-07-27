@@ -44,7 +44,7 @@ class Category extends Model implements TranslatableContract, ImageModelInterfac
     }
     public static function getUserInfoMessage(): string
     {
-        return FileDimensionHelper::getUserInfoMessage('Shop', 2);
+        return FileDimensionHelper::getUserInfoMessage('Product', 2);
     }
     public static function cacheUpdate(): void
     {

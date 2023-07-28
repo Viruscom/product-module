@@ -6,6 +6,7 @@ use App\Helpers\CacheKeysHelper;
 use App\Helpers\LanguageHelper;
 use App\Traits\CommonActions;
 use App\Traits\Scopes;
+use App\Traits\StorageActions;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +18,7 @@ use Modules\Product\Models\Admin\ProductCategory\Category;
 
 class ProductAttribute extends Model implements TranslatableContract
 {
-    use Translatable, Scopes, CommonActions;
+    use Translatable, Scopes, CommonActions, StorageActions;
 
     public array $translatedAttributes  = ['title'];
     protected    $table                 = 'product_attributes';

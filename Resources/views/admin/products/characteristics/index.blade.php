@@ -44,7 +44,7 @@
                                 @if($i != count($characteristics))
                                     <a href="{{ route('admin.products.characteristics.position-down', ['id'=>$characteristic->id]) }}" role="button" class="move-down btn yellow"><i class="fas fa-angle-down"></i></a>
                                 @endif
-                                <a href="{{ route('admin.products.characteristics.delete', ['id'=>$characteristic->id]) }}" class="btn red" data-toggle="confirmation"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{ route('admin.products.characteristics.delete', ['id'=>$characteristic->id]) }}" class="btn red btn-delete-confirm tooltips" data-toggle="confirmation"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                             <?php $i++; ?>

@@ -28,7 +28,7 @@ class Product extends Model
     const        ALLOW_ICONS    = true;
     const        ALLOW_LOGOS    = true;
 
-    public static string $PRODUCT_SYSTEM_IMAGE  = 'shop_3_image.png';
+    public static string $PRODUCT_SYSTEM_IMAGE  = 'product_3_image.png';
     public static string $PRODUCT_RATIO         = '1/1';
     public static string $PRODUCT_MIMES         = 'jpg,jpeg,png,gif';
     public static string $PRODUCT_MAX_FILE_SIZE = '3000';

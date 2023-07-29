@@ -139,8 +139,8 @@
                             </div>
 
                             <div class="col-md-6">
-                                @include('admin.partials.on_create.checkbox', ['fieldName' => 'catalog_from_discounted_price', 'label' => trans('shop::admin.products.from_price'), 'required' => false])
-                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'catalog_discounted_price', 'label' => trans('shop::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100'])
+                                @include('admin.partials.on_create.checkbox', ['fieldName' => 'catalog_from_discounted_price', 'label' => trans('product::admin.products.from_price'), 'required' => false])
+                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'catalog_discounted_price', 'label' => trans('product::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100'])
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'weight', 'label' => trans('shop::admin.products.weight'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'width', 'label' => trans('shop::admin.products.width'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'height', 'label' => trans('shop::admin.products.height'), 'required' => false])--}}

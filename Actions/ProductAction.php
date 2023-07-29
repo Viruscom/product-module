@@ -74,9 +74,13 @@ class ProductAction
                 'visible' => true
             ];
         }
-        $data['type']     = AdBox::$WAITING_ACTION;
-        $data['position'] = AdBox::generatePosition($data, 0);
-        $data['active']   = true;
+        $data['type']           = AdBox::$WAITING_ACTION;
+        $data['position']       = AdBox::generatePosition($data, 0);
+        $data['active']         = true;
+        $data['from_price']     = $product->catalog_from_price;
+        $data['price']          = $product->price;
+        $data['from_new_price'] = $product->catalog_from_discounted_price;
+        $data['new_price']      = $product->catalog_discounted_price;
 
         AdBox::create($data->all());
         AdBox::cacheUpdate();

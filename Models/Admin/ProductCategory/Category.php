@@ -29,7 +29,7 @@ class Category extends Model implements TranslatableContract, ImageModelInterfac
     const        ALLOW_ICONS    = true;
     const        ALLOW_LOGOS    = true;
 
-    public static string $PRODUCT_CATEGORY_SYSTEM_IMAGE  = 'shop_2_image.png';
+    public static string $PRODUCT_CATEGORY_SYSTEM_IMAGE  = 'product_2_image.png';
     public static string $PRODUCT_CATEGORY_RATIO         = '1/1';
     public static string $PRODUCT_CATEGORY_MIMES         = 'jpg,jpeg,png,gif,svg';
     public static string $PRODUCT_CATEGORY_MAX_FILE_SIZE = '3000';

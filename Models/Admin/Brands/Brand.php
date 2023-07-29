@@ -27,7 +27,7 @@ class Brand extends Model implements TranslatableContract, ImageModelInterface
     const        ALLOW_ICONS    = true;
     const        ALLOW_LOGOS    = true;
 
-    public static string $BRAND_SYSTEM_IMAGE  = 'brand_1_image.png';
+    public static string $BRAND_SYSTEM_IMAGE  = 'product_1_image.png';
     public static string $BRAND_RATIO         = '1/1';
     public static string $BRAND_MIMES         = 'jpg,jpeg,png,gif';
     public static string $BRAND_MAX_FILE_SIZE = '3000';

@@ -40,10 +40,10 @@
 
                     <div class="prod-info">
                         <p data-aos="fade-up" data-aos-delay="50">
-                            <span>{{ __('shop::front.product.category') }}:</span>{{ $category->title }} </p>
+                            <span>{{ __('product::front.product.category') }}:</span>{{ $category->title }} </p>
 
                         <p data-aos="fade-up" data-aos-delay="100">
-                            <span>{{ __('shop::front.product.weight') }}:</span>{{ $product->weight }} </p>
+                            <span>{{ __('product::front.product.weight') }}:</span>{{ $product->weight }} </p>
                     </div>
 
                     <div class="page-price" data-aos="fade-up" data-aos-delay="150">
@@ -74,7 +74,7 @@
                 @include('front.partials.content.after_description_modules', ['model' => $viewArray['currentModel']])
             </p>
 
-            @include('shop::front.products.additional_fields')
+            @include('product::front.products.additional_fields')
         </div>
     </div>
 
@@ -102,13 +102,13 @@
         <div class="page-nav">
             @if(!is_null($product->getPreviousProductUrl($languageSlug)))
                 <a href="{{ $product->getPreviousProductUrl($languageSlug) }}" data-aos="fade-up" data-aos-delay="100" class="page-prev">
-                    <span>{{ __('shop::front.product.previous') }}</span>
+                    <span>{{ __('product::front.product.previous') }}</span>
                 </a>
             @endif
 
             @if(!is_null($product->getNextProductUrl($languageSlug)))
                 <a href="{{ $product->getNextProductUrl($languageSlug) }}" data-aos="fade-up" data-aos-delay="100" class="page-next">
-                    <span>{{ __('shop::front.product.next') }}</span>
+                    <span>{{ __('product::front.product.next') }}</span>
                 </a>
             @endif
         </div>

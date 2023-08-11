@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'shop'                     =>
+    'shop'     =>
         array(
             'index'          => 'Магазин',
             'create'         => 'Добавяне на',
@@ -9,14 +9,14 @@ return array(
             'settings_index' => 'Магазин настройки',
             'dashboard'      => 'Табло',
         ),
-    'common'                   =>
+    'common'   =>
         array(
             'number'  => '№',
             'type'    => 'Тип',
             'title'   => 'Заглавие',
             'actions' => 'Действия',
         ),
-    'products'                 =>
+    'products' =>
         array(
             'index'                                      => 'Продукти',
             'create'                                     => 'Добавяне на продукт',
@@ -64,6 +64,7 @@ return array(
             'catalog_discounted_price'                   => 'Каталожна цена с отстъпка',
             'from_price'                                 => 'От цена',
         ),
+
     'product_adboxes'          =>
         array(
             'index'                         => 'Продуктови карета',

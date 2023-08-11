@@ -2,15 +2,15 @@
     @foreach($products as $product)
         <div class="box" data-aos="fade-up">
             <div class="box-image-wrapper">
-                    <div class="labels">
-                        @if($product->isNewProduct())
-                            <div class="label label-new">{{ __('shop::front.product.label_new') }}</div>
-                        @endif
+                <div class="labels">
+                    @if($product->isNewProduct())
+                        <div class="label label-new">{{ __('product::front.product.label_new') }}</div>
+                    @endif
 
-                        @if($product->isPromoProduct())
-                            <div class="label">{{ __('shop::front.product.label_promo') }}</div>
-                        @endif
-                    </div>
+                    @if($product->isPromoProduct())
+                        <div class="label">{{ __('product::front.product.label_promo') }}</div>
+                    @endif
+                </div>
 
                 <a href="{{ $product->getUrl($languageSlug) }}"></a>
 

@@ -96,7 +96,7 @@ class MeasuringUnitsController extends Controller
     {
         $measureUnit = MeasureUnit::find($id);
         if (is_null($measureUnit)) {
-            return redirect()->back()->withInput()->withErrors(['administration_messages.page_not_found']);
+            return redirect()->back()->withInput()->withErrors(['admin.common.record_not_found']);
         }
 
         $action->doSimpleUpdate(MeasureUnit::class, MeasureUnitTranslation::class, $measureUnit, $request);

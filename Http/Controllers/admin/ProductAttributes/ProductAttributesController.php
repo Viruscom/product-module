@@ -138,7 +138,7 @@ class ProductAttributesController extends Controller implements ShopProductAttri
     {
         $productAttribute = ProductAttribute::find($id);
         if (is_null($productAttribute)) {
-            return redirect()->back()->withInput()->withErrors(['administration_messages.page_not_found']);
+            return redirect()->back()->withInput()->withErrors(['admin.common.record_not_found']);
         }
 
         //        $request['position'] = $productCharacteristic->updatedPosition($request);

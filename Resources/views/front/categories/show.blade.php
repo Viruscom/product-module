@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    @include('shop::front.categories.list_products', ['products' => $viewArray['currentModel']->parent->products])
+    @include('product::front.categories.list_products', ['products' => $viewArray['currentModel']->parent->products])
 
     <section class="section-text section-text-alt section-text-3">
         <div class="shell">

@@ -133,7 +133,7 @@ class ProductCharacteristicsController extends Controller implements PositionInt
     {
         $productCharacteristic = ProductCharacteristic::find($id);
         if (is_null($productCharacteristic)) {
-            return redirect()->back()->withInput()->withErrors(['administration_messages.page_not_found']);
+            return redirect()->back()->withInput()->withErrors(['admin.common.record_not_found']);
         }
 
         //        $request['position'] = $productCharacteristic->updatedPosition($request);

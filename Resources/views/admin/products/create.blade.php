@@ -111,7 +111,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">{{ __('product::admin.products.label_promo_product') }}:</label>
+                                        {{--                                        <label class="control-label col-md-3">{{ __('product::admin.products.label_promo_product') }}:</label>--}}
                                         <div class="col-md-6">
                                             <label class="switch pull-left">
                                                 {{--                                                <input type="checkbox" name="is_promo" class="success" data-size="small" {{(old('is_promo') ? 'checked' : 'active')}}>--}}
@@ -128,35 +128,25 @@
 
                             <div class="col-md-6 p-r-30">
                                 @include('admin.partials.on_create.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('product::admin.products.brand'), 'models' => $brands, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
-                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'measure_unit_value', 'label' => __('product::admin.products.measure_unit_value'), 'required' => true])
-                                @include('admin.partials.on_create.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
-                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'supplier_delivery_price', 'label' => trans('product::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100'])
-                                @include('admin.partials.on_create.checkbox', ['fieldName' => 'catalog_from_price', 'label' => trans('product::admin.products.from_price'), 'required' => false])
+                                {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'supplier_delivery_price', 'label' => trans('product::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100'])--}}
+
+                                @include('admin.partials.on_create.checkbox_tooltip', ['fieldName' => 'catalog_from_price', 'label' => trans('product::admin.products.from_price'), 'required' => false, 'tooltipText' => __('admin.common.activate_deactivate_from_price')])
                                 @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'price', 'label' => trans('product::admin.products.price'), 'required' => true, 'class' => 'width-p100'])
-                                @include('admin.partials.on_create.form_fields.input_integer', ['fieldName' => 'units_in_stock', 'label' => trans('product::admin.products.units_in_stock'), 'required' => true,'fieldNameValue' => old('units_in_stock') ?: 1, 'min' => 1, 'max'=> 999999999999])
+                                @include('admin.partials.on_create.checkbox_tooltip', ['fieldName' => 'catalog_from_discounted_price', 'label' => trans('product::admin.products.from_price'), 'required' => false, 'tooltipText' => __('admin.common.activate_deactivate_from_price')])
+                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'catalog_discounted_price', 'label' => trans('product::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100'])
+
+                                {{--                                @include('admin.partials.on_create.form_fields.input_integer', ['fieldName' => 'units_in_stock', 'label' => trans('product::admin.products.units_in_stock'), 'required' => true,'fieldNameValue' => old('units_in_stock') ?: 1, 'min' => 1, 'max'=> 999999999999])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'sku', 'label' => trans('product::admin.products.sku_number'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'barcode', 'label' => trans('shop::admin.products.barcode'), 'required' => false])--}}
                             </div>
 
                             <div class="col-md-6">
-                                @include('admin.partials.on_create.checkbox', ['fieldName' => 'catalog_from_discounted_price', 'label' => trans('product::admin.products.from_price'), 'required' => false])
-                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'catalog_discounted_price', 'label' => trans('product::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100'])
+                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'measure_unit_value', 'label' => __('product::admin.products.measure_unit_value'), 'required' => true])
+                                @include('admin.partials.on_create.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'weight', 'label' => trans('shop::admin.products.weight'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'width', 'label' => trans('shop::admin.products.width'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'height', 'label' => trans('shop::admin.products.height'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'length', 'label' => trans('shop::admin.products.length'), 'required' => false])--}}
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>ДДС ставки</h4>
-                                </div>
-                                <div class="col-md-6 col-xs-12">
-                                    {{--                            TODO: VAT categories fields--}}
-                                </div>
-                                <div class="col-md-6 col-xs-12">
-
-                                </div>
                             </div>
 
                             <div class="row">

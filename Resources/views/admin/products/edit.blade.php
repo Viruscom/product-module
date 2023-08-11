@@ -127,35 +127,24 @@
 
                         <div class="col-md-6 p-r-30">
                             @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('product::admin.products.brand'), 'models' => $brands, 'modelId' => $product->brand_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'measure_unit_value', 'label' => trans('product::admin.products.measure_unit_value'), 'required' => true, 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'modelId' => $product->measure_unit_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'supplier_delivery_price', 'label' => trans('product::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])
-                            @include('admin.partials.on_edit.checkbox', ['fieldName' => 'catalog_from_price', 'label' => __('product::admin.products.from_price'), 'required' => false, 'model' => $product])
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'supplier_delivery_price', 'label' => trans('product::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])--}}
+                            @include('admin.partials.on_edit.checkbox_tooltip', ['fieldName' => 'catalog_from_discounted_price', 'label' => __('product::admin.products.from_price'), 'required' => false, 'model' => $product, 'tooltipText' => __('admin.common.activate_deactivate_from_price') ])
+                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'catalog_discounted_price', 'label' => __('product::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100', 'model' => $product])
+                            @include('admin.partials.on_edit.checkbox_tooltip', ['fieldName' => 'catalog_from_price', 'label' => __('product::admin.products.from_price'), 'required' => false, 'model' => $product, 'tooltipText' => __('admin.common.activate_deactivate_from_price') ])
                             @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'price', 'label' => trans('product::admin.products.price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.input_integer', ['fieldName' => 'units_in_stock', 'label' => trans('product::admin.products.units_in_stock'), 'required' => true,'fieldNameValue' => old('units_in_stock') ?: $product->units_in_stock, 'min' => 1, 'max'=> 999999999999])
+                            {{--                            @include('admin.partials.on_edit.form_fields.input_integer', ['fieldName' => 'units_in_stock', 'label' => trans('product::admin.products.units_in_stock'), 'required' => true,'fieldNameValue' => old('units_in_stock') ?: $product->units_in_stock, 'min' => 1, 'max'=> 999999999999])--}}
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'sku', 'label' => trans('product::admin.products.sku_number'), 'required' => false, 'model' => $product])--}}
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'barcode', 'label' => trans('product::admin.products.barcode'), 'required' => false, 'model' => $product])--}}
                         </div>
 
                         <div class="col-md-6">
-                            @include('admin.partials.on_edit.checkbox', ['fieldName' => 'catalog_from_discounted_price', 'label' => __('product::admin.products.from_price'), 'required' => false, 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'catalog_discounted_price', 'label' => __('product::admin.products.catalog_discounted_price'), 'required' => false, 'class' => 'width-p100', 'model' => $product])
+                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'measure_unit_value', 'label' => trans('product::admin.products.measure_unit_value'), 'required' => true, 'model' => $product])
+                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'modelId' => $product->measure_unit_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
+
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'weight', 'label' => trans('product::admin.products.weight'), 'required' => false, 'model' => $product])--}}
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'width', 'label' => trans('product::admin.products.width'), 'required' => false, 'model' => $product])--}}
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'height', 'label' => trans('product::admin.products.height'), 'required' => false, 'model' => $product])--}}
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'length', 'label' => trans('product::admin.products.length'), 'required' => false, 'model' => $product])--}}
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>ДДС ставки</h4>
-                            </div>
-                            <div class="col-md-6 col-xs-12">
-                                {{--                            TODO: VAT categories fields--}}
-                            </div>
-                            <div class="col-md-6 col-xs-12">
-
-                            </div>
                         </div>
 
                         <div class="row">

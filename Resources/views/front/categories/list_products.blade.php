@@ -29,27 +29,33 @@
                 <p>{!! $product->announce !!}</p>
 
                 <div class="box-actions">
-                    <div class="box-prices">
+                    <p class="box-prices">
+                    @if(!empty($product->getCatalogDiscountedPrice()))
                         <p class="old-price">
-                            <span>{{ __('front.from') }}</span>
-
-                            <strong>118.00
-                                <span>{{ __('front.currency') }}</span>
-                            </strong>
+                            @if($product->catalog_from_discounted_price)
+                                <span>{{ __('front.from') }}</span>
+                            @endif
+                            <strong>{{ $product->getCatalogDiscountedPrice() }}</strong> <span>{{ __('front.currency') }}</span>
                         </p>
-
                         <p>
-                            <span>{{ __('front.from') }}</span>
+                            @if($product->catalog_from_price)
+                                <span>{{ __('front.from') }}</span>
+                            @endif
 
-                            <strong>96.00
-                                <span>{{ __('front.currency') }}</span>
-                            </strong>
+                            <strong>{{ $product->getPrice() }}</strong> <span>{{ __('front.currency') }}</span>
                         </p>
-                    </div>
+                    @else
+                        <p>
+                            @if($product->catalog_from_price)
+                                <span>{{ __('front.from') }}</span>
+                            @endif
 
-                    <a href="{{ $product->getUrl($languageSlug) }}" class="link-more color-red">...{{ __('front.see_more') }}</a>
+                            <strong>{{ $product->getPrice() }}</strong> <span>{{ __('front.currency') }}</span>
+                        </p>
+                    @endif
                 </div>
+
+                <a href="{{ $product->getUrl($languageSlug) }}" class="link-more color-red">...{{ __('front.see_more') }}</a>
             </div>
         </div>
-    @endforeach
-</div>
+</div>@endforeach</div>

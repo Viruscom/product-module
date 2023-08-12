@@ -29,7 +29,7 @@
 
         public static string $BRAND_SYSTEM_IMAGE  = 'product_1_image.png';
         public static string $BRAND_RATIO         = '1/1';
-        public static string $BRAND_MIMES         = 'jpg,jpeg,png,gif';
+        public static string $BRAND_MIMES         = 'jpg,jpeg,png,gif,svg';
         public static string $BRAND_MAX_FILE_SIZE = '3000';
 
         public array $translatedAttributes = ['title', 'announce', 'description', 'visible', 'url'];

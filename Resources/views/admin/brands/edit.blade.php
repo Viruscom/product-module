@@ -130,12 +130,12 @@
                                     @endforeach
                                     <tr class="pickPositionTr" data-position="{{$brands->last()->position+1}}">
                                         <td>{{$brands->last()->position+1}}</td>
-                                        <td>--{{trans('administration_messages.last_position')}}--</td>
+                                        <td>--{{trans('admin.common.last_position')}}--</td>
                                     </tr>
                                 @else
                                     <tr class="pickPositionTr" data-position="1">
                                         <td>1</td>
-                                        <td>--{{trans('administration_messages.last_position')}}--</td>
+                                        <td>--{{trans('admin.common.last_position')}}--</td>
                                     </tr>
                                 @endif
                                 </tbody>

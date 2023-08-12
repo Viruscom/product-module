@@ -13,6 +13,7 @@
     @php
         $product = $viewArray['currentModel']->parent;
         $category = $viewArray['currentModel']->parent->category;
+        $subCategories = $category->subCategories;
     @endphp
 
     <div class="page-product">
@@ -24,7 +25,30 @@
             </div>
         </div>
 
-        {{--      Icons here --}}
+        <div class="icons-wrapper category-picker" data-aos="fade-up" data-aos-delay="100">
+            <ul class="list-icons">
+
+                <li @if(url()->current() === $category->getUrl($languageSlug)) class="active" @endif>
+                    <a href="{{ $category->getUrl($languageSlug) }}" target="_blank"></a>
+
+                    <img src="{{ $category->getFileUrl() }}" alt="{{ $category->title }}">
+
+                    <p>{{ $category->title }}</p>
+                </li>
+
+                @foreach($subCategories as $subCategory)
+                    <li @if(url()->current() === $subCategory->getUrl($languageSlug)) class="active" @endif>
+                        <a href="{{ $subCategory->getUrl($languageSlug) }}" target="_blank"></a>
+
+                        <img src="{{ $subCategory->getFileUrl() }}" alt="{{ $subCategory->title }}">
+
+                        <p>{{ $subCategory->title }}</p>
+                    </li>
+                @endforeach
+
+            </ul>
+        </div>
+
         <div class="shell">
             <div class="prod-elements">
                 <div class="prod-image-wrapper" data-aos="fade-up" data-aos-delay="50">
@@ -58,7 +82,8 @@
                         </div>
                     </div>
 
-                    <form action="">
+                    <form action="{{ route('front.contacts.make-product-inquiry', ['languageSlug' => $languageSlug,'productId' => $product->id]) }}" method="POST">
+                        @csrf
                         <button class="btn btn-prod" type="submit" data-aos="fade-up" data-aos-delay="200">
                             <span>{{ __('front.inquiry') }}</span>
 

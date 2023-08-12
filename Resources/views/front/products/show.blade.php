@@ -71,15 +71,29 @@
                     </div>
 
                     <div class="page-price" data-aos="fade-up" data-aos-delay="150">
-                        {{--                        <div class="price price-old">--}}
-                        {{--                            {{ __('front.from') }} <strong>98.00</strong> <span>{{ __('front.currency') }}</span>--}}
-                        {{--                        </div>--}}
+                        @if(!empty($product->getCatalogDiscountedPrice()))
+                            <div class="price price-old">
+                                @if($product->catalog_from_discounted_price)
+                                    <span>{{ __('front.from') }}</span>
+                                @endif
+                                <strong>{{ $product->getCatalogDiscountedPrice() }}</strong> <span>{{ __('front.currency') }}</span>
+                            </div>
+                            <div class="price">
+                                @if($product->catalog_from_price)
+                                    <span>{{ __('front.from') }}</span>
+                                @endif
 
-                        <div class="price">
-                            {{--                            {{ __('front.from') }} --}}
+                                <strong>{{ $product->getPrice() }}</strong> <span>{{ __('front.currency') }}</span>
+                            </div>
+                        @else
+                            <div class="price">
+                                @if($product->catalog_from_price)
+                                    <span>{{ __('front.from') }}</span>
+                                @endif
 
-                            <strong>{{ $product->getPrice() }}</strong> <span>{{ __('front.currency') }}</span>
-                        </div>
+                                <strong>{{ $product->getPrice() }}</strong> <span>{{ __('front.currency') }}</span>
+                            </div>
+                        @endif
                     </div>
 
                     <form action="{{ route('front.contacts.make-product-inquiry', ['languageSlug' => $languageSlug,'productId' => $product->id]) }}" method="POST">

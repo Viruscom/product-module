@@ -1,11 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('styles')
-    <link href="{{ asset('admin/css/select2.min.css') }}" rel="stylesheet"/>
-@endsection
-
 @section('scripts')
-    <script src="{{ asset('admin/js/select2.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
         try {
@@ -13,7 +8,6 @@
             CKEDITOR.replace('editor');
         } catch {
         }
-        $(".select2").select2({language: "bg"});
     </script>
 @endsection
 

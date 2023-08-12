@@ -111,10 +111,10 @@
                                     </div>
 
                                     <div class="form-group">
-                                        {{--                                        <label class="control-label col-md-3">{{ __('product::admin.products.label_promo_product') }}:</label>--}}
+                                        <label class="control-label col-md-3">{{ __('product::admin.products.label_promo_product') }}:</label>
                                         <div class="col-md-6">
                                             <label class="switch pull-left">
-                                                {{--                                                <input type="checkbox" name="is_promo" class="success" data-size="small" {{(old('is_promo') ? 'checked' : 'active')}}>--}}
+                                                <input type="checkbox" name="is_promo" class="success" data-size="small" {{(old('is_promo') ? 'checked' : 'active')}}>
                                                 <span class="slider"></span>
                                             </label>
                                         </div>

@@ -5,7 +5,7 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a href="{{ route('admin.product.settings.index') }}" class="text-black">{{ __('product::admin.main_settings.index') }}</a>
+            <a href="{{ route('admin.product.settings.index') }}" class="text-black">{{ __('product::admin.product_settings.index') }}</a>
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
@@ -16,10 +16,10 @@
                 <i class="fa fa-angle-right"></i>
                 <a href="{{ route('admin.measuring-units.create') }}" class="text-purple">{{ __('product::admin.measure_units.create') }}</a>
             </li>
-        @elseif(Request::segment(4) !== null && url()->current() === route('admin.measuring-units.edit', ['id' => Request::segment(4)]))
+        @elseif(url()->current() === route('admin.measuring-units.edit', ['id' => Request::segment(5)]))
             <li>
                 <i class="fa fa-angle-right"></i>
-                <a href="{{ route('admin.measuring-units.edit', ['id' => Request::segment(4)]) }}" class="text-purple">{{ __('product::admin.measure_units.edit') }}</a>
+                <a href="{{ route('admin.measuring-units.edit', ['id' => Request::segment(5)]) }}" class="text-purple">{{ __('product::admin.measure_units.edit') }}</a>
             </li>
         @endif
     </ul>

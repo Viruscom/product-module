@@ -67,7 +67,7 @@
                             <span>{{ __('product::front.product.category') }}:</span>{{ $category->title }} </p>
 
                         <p data-aos="fade-up" data-aos-delay="100">
-                            <span>{{ __('product::front.product.weight') }}:</span>{{ $product->weight }} </p>
+                            <span>{{ __('product::front.product.weight') }}:</span>{{ $product->measure_unit_value . ' ' . $product->measureUnit->title }} </p>
                     </div>
 
                     <div class="page-price" data-aos="fade-up" data-aos-delay="150">
@@ -121,14 +121,6 @@
         <div class="shell">
             <div class="article">
                 @include('front.partials.content.additional_titles_and_texts', ['model' => $viewArray['currentModel']])
-            </div>
-
-            <div class="page-bottom">
-                <div class="page-price" data-aos="fade-up" data-aos-delay="100">
-                    <div class="price">
-                        <strong>{{ $product->getPrice() }}</strong> <span>{{ __('front.currency') }}</span>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

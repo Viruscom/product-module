@@ -16,7 +16,7 @@
                 <i class="fa fa-angle-right"></i>
                 <a href="{{ route('admin.measuring-units.create') }}" class="text-purple">{{ __('product::admin.measure_units.create') }}</a>
             </li>
-        @elseif(url()->current() === route('admin.measuring-units.edit', ['id' => Request::segment(5)]))
+        @elseif(Request::segment(5) != null && url()->current() === route('admin.measuring-units.edit', ['id' => Request::segment(5)]))
             <li>
                 <i class="fa fa-angle-right"></i>
                 <a href="{{ route('admin.measuring-units.edit', ['id' => Request::segment(5)]) }}" class="text-purple">{{ __('product::admin.measure_units.edit') }}</a>

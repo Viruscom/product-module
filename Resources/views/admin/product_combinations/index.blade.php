@@ -44,7 +44,7 @@
                     $('.actions').addClass('hidden');
                 } else {
                     $.ajax({
-                        url: $('.base-url').text() + '/admin/shop/product_combinations/getAttributesByProductCategory',
+                        url: '{{ route('admin.product-combinations.getAttributesByProductCategory') }}',
                         type: 'POST',
                         data: {
                             _token: $('input[name="_token"]').val(), product_id: $(this).val()
@@ -63,7 +63,7 @@
                     });
 
                     $.ajax({
-                        url: $('.base-url').text() + '/admin/shop/product_combinations/getProductSkuNumber',
+                        url: '{{ route('admin.product-combinations.getProductSkuNumber') }}',
                         type: 'POST',
                         data: {
                             _token: $('input[name="_token"]').val(), product_id: $(this).val()
@@ -181,7 +181,7 @@
                 });
 
                 $.ajax({
-                    url: $('.base-url').text() + '/admin/shop/product_combinations/multiple/update',
+                    url: '{{ route('admin.product-combinations.update-multiple') }}',
                     type: 'POST',
                     data: {_token: $('input[name="_token"]').val(), combos: combosArray},
                     async: false,

@@ -36,7 +36,7 @@
             <div class="form-group">
                 <label class="control-label page-label col-md-3"><span class="text-purple">* </span>@lang('product::admin.products.attach_to_category'):</label>
                 <div class="col-md-5">
-                    <select class="form-control select2 products-select select2-hidden-accessible" name="category_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <select class="form-control select2" name="category_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
                         <option value="" data-select2-id="3">@lang('admin.common.please_select')</option>
                         @foreach($productCategories as $index => $category)
                             @include('product::admin.products.categories_options_integer_value', ['category' => $category, 'depth' => [$index + 1]])

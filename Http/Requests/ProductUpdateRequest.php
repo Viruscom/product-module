@@ -37,7 +37,7 @@
                 'brand_id'        => 'required',
                 //            'supplier_delivery_price' => 'required',
                 //                'price'           => ['required', 'gt:supplier_delivery_price'],
-                'price'           => ['required'],
+                //                'price'           => ['required'],
                 //            'units_in_stock'          => ['required', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
                 'weight'          => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
                 'width'           => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],

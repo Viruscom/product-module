@@ -82,7 +82,7 @@
             $data['from_price']     = $product->catalog_from_price;
             $data['price']          = $product->price;
             $data['from_new_price'] = $product->catalog_from_discounted_price;
-            $data['new_price']      = $product->catalog_discounted_price;
+            $data['new_price']      = $product->catalog_discounted_price == '' || $product->catalog_discounted_price == null ? '0.00' : $product->catalog_discounted_price;
 
             AdBox::create($data->all());
             AdBox::cacheUpdate();

@@ -57,7 +57,7 @@
             });
 
             cache()->rememberForever(CacheKeysHelper::$SHOP_PRODUCT_FRONT, function () {
-                return self::with('category')->with('brand', 'measureUnit')->active(true)->orderBy('position')->with('translations')->get();
+                return self::with('category', 'category.translations')->with('brand', 'measureUnit')->active(true)->orderBy('position')->with('translations')->get();
             });
         }
         public static function getRequestData($request): array
@@ -239,7 +239,7 @@
          */
         public function category(): BelongsTo
         {
-            return $this->belongsTo(Category::class);
+            return $this->belongsTo(Category::class)->with('translations');
         }
         /**
          * @return BelongsTo

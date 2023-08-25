@@ -144,6 +144,6 @@
 
         public function getUrl($languageSlug)
         {
-            return url($languageSlug . '/' . $this->url);
+            return url($languageSlug . '/' . $this->translate($languageSlug)->url);
         }
     }

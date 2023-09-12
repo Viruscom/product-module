@@ -48,7 +48,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <h4>Продукти към категория: {{ $productCategory->title }}</h4>
+            <h3>Продукти към категория: <strong>{{ $productCategory->title }}</strong></h3>
         </div>
         <div class="col-xs-12">
             <div class="table-responsive">

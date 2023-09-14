@@ -59,7 +59,7 @@
 
             return view('product::admin.product_categories.edit', [
                 'category'      => $productCategory,
-                'categories'    => Cache::get(CacheKeysHelper::$SHOP_PRODUCT_CATEGORY_ADMIN),
+                'categories'    => Category::where('main_category', $productCategory->main_category)->with('translations')->get(),
                 'languages'     => LanguageHelper::getActiveLanguages(),
                 'fileRulesInfo' => Category::getUserInfoMessage()
             ]);

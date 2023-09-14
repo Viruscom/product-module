@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="display: flex;" class="m-t-20">
+                        <div style="display: flex;flex-wrap: wrap;row-gap: 10px;" class="m-t-20">
                             @forelse($productCategories as $category)
                                 <div class="pretty p-default p-square">
                                     <input type="checkbox" class="checkbox-row" name="productCategories[]" value="{{$category->id}}"{{ old('productCategories') ? (in_array($category->id, old('productCategories')) ? 'checked':''):'' }}/>
@@ -75,6 +75,16 @@
                                         <label>{{ $category->title }}</label>
                                     </div>
                                 </div>
+                                @if($category->subCategories->isNotEmpty())
+                                    @foreach($category->subCategories as $category)
+                                        <div class="pretty p-default p-square">
+                                            <input type="checkbox" class="checkbox-row" name="productCategories[]" value="{{$category->id}}"{{ old('productCategories') ? (in_array($category->id, old('productCategories')) ? 'checked':''):'' }}/>
+                                            <div class="state p-primary">
+                                                <label>{{ $category->title }}</label>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                             @empty
                                 <div class="alert alert-warning">Няма добавени или активни категории</div>
                             @endforelse

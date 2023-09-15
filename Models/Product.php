@@ -193,7 +193,10 @@
                 case 'Brand':
                     return view('product::front.brands.show', ['viewArray' => $viewArray]);
                 case 'Category':
-                    return view('product::front.categories.show', ['viewArray' => $viewArray]);
+                    $categories = Admin\ProductCategory\Category::where('active', true)->where('main_category', null)->with('translations', 'subCategories')->orderBy('position', 'asc')->get();
+                    $brands     = Brand::where('active', true)->with('translations')->get();
+
+                    return view('product::front.categories.show', ['viewArray' => $viewArray, 'categories' => $categories, 'brands' => $brands]);
                 default:
                     abort(404);
             }

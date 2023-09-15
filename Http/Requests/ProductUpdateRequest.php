@@ -4,7 +4,6 @@
 
     use App\Helpers\LanguageHelper;
     use Illuminate\Foundation\Http\FormRequest;
-    use Illuminate\Validation\Rule;
 
     class ProductUpdateRequest extends FormRequest
     {
@@ -32,17 +31,17 @@
         {
             $this->trimInput();
             $array = [
-                'category_id'     => 'required',
-                'measure_unit_id' => ['required', 'integer', Rule::exists('measure_units', 'id')],
-                'brand_id'        => 'required',
+                'category_id' => 'required',
+                //                'measure_unit_id' => ['required', 'integer', Rule::exists('measure_units', 'id')],
+                'brand_id'    => 'required',
                 //            'supplier_delivery_price' => 'required',
                 //                'price'           => ['required', 'gt:supplier_delivery_price'],
                 //                'price'           => ['required'],
                 //            'units_in_stock'          => ['required', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
-                'weight'          => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
-                'width'           => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
-                'height'          => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
-                'length'          => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
+                'weight'      => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
+                'width'       => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
+                'height'      => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
+                'length'      => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
             ];
             foreach ($this->LANGUAGES as $language) {
                 $array['title_' . $language->code] = 'required';

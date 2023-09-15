@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="col-md-6 p-r-30">
-                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('product::admin.products.brand'), 'models' => $brands, 'modelId' => $product->brand_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
+                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('product::admin.products.brand'), 'models' => $brands, 'modelId' => $product->brand_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix', 'withPleaseSelect' => true])
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'supplier_delivery_price', 'label' => trans('product::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100', 'model' => $product])--}}
                             @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'price', 'label' => trans('product::admin.products.price'), 'required' => false, 'class' => 'width-p100', 'model' => $product])
                             @include('admin.partials.on_edit.checkbox_tooltip', ['fieldName' => 'catalog_from_price', 'label' => __('product::admin.products.from_price'), 'required' => false, 'model' => $product, 'tooltipText' => __('admin.common.activate_deactivate_from_price') ])
@@ -138,8 +138,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'measure_unit_value', 'label' => trans('product::admin.products.measure_unit_value'), 'required' => true, 'model' => $product])
-                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'modelId' => $product->measure_unit_id, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
+                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'measure_unit_value', 'label' => trans('product::admin.products.measure_unit_value'), 'required' => false, 'model' => $product])
+                            @include('admin.partials.on_edit.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'modelId' => $product->measure_unit_id, 'required' => false, 'labelClass' => 'select-label-fix', 'class' => 'select-fix', 'withPleaseSelect' => true])
 
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'weight', 'label' => trans('product::admin.products.weight'), 'required' => false, 'model' => $product])--}}
                             {{--                            @include('admin.partials.on_edit.form_fields.input_text_without_lang', ['fieldName' => 'width', 'label' => trans('product::admin.products.width'), 'required' => false, 'model' => $product])--}}

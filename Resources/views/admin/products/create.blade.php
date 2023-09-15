@@ -127,7 +127,7 @@
                             </div>
 
                             <div class="col-md-6 p-r-30">
-                                @include('admin.partials.on_create.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('product::admin.products.brand'), 'models' => $brands, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
+                                @include('admin.partials.on_create.form_fields.select', ['fieldName' => 'brand_id', 'label' => trans('product::admin.products.brand'), 'models' => $brands, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix', 'withPleaseSelect' => true])
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'supplier_delivery_price', 'label' => trans('product::admin.products.supplier_delivery_price'), 'required' => true, 'class' => 'width-p100'])--}}
 
                                 @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'price', 'label' => trans('product::admin.products.price'), 'required' => false, 'class' => 'width-p100'])
@@ -141,8 +141,8 @@
                             </div>
 
                             <div class="col-md-6">
-                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'measure_unit_value', 'label' => __('product::admin.products.measure_unit_value'), 'required' => true])
-                                @include('admin.partials.on_create.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'required' => true, 'labelClass' => 'select-label-fix', 'class' => 'select-fix'])
+                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'measure_unit_value', 'label' => __('product::admin.products.measure_unit_value'), 'required' => false])
+                                @include('admin.partials.on_create.form_fields.select', ['fieldName' => 'measure_unit_id', 'label' => trans('product::admin.products.measure_unit'), 'models' => $measureUnits, 'required' => false, 'labelClass' => 'select-label-fix', 'class' => 'select-fix', 'withPleaseSelect' => true])
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'weight', 'label' => trans('shop::admin.products.weight'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'width', 'label' => trans('shop::admin.products.width'), 'required' => false])--}}
                                 {{--                                @include('admin.partials.on_create.form_fields.input_text', ['fieldName' => 'height', 'label' => trans('shop::admin.products.height'), 'required' => false])--}}

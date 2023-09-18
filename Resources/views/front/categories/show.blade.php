@@ -13,6 +13,11 @@
     @include('front.partials.inner_header')
     @include('front.partials.breadcrumbs')
 
+    @php
+        $category = $viewArray['currentModel']->parent;
+        $subCategories = $category->subCategories;
+    @endphp
+
     <section class="section-top section-top-2">
         <div class="shell">
             <img src="{{ asset('front/assets/icons/attachment-6.svg') }}" alt="" data-aos="fade-up" data-aos-delay="50">
@@ -27,7 +32,21 @@
         </div>
     </section>
 
+    <ul class="list-icons">
+        @foreach($subCategories as $subCategory)
+            <li @if(url()->current() === $subCategory->getUrl($languageSlug)) class="active" @endif>
+                <a href="{{ $subCategory->getUrl($languageSlug) }}"></a>
+                <img src="{{ $subCategory->getFileUrl() }}" alt="">
+                <p>{{ $subCategory->title }}</p>
+            </li>
+        @endforeach
+    </ul>
+
     @include('product::front.categories.list_products', ['products' => $viewArray['currentModel']->parent->products])
+
+    @foreach($subCategories as $subCategory)
+        @include('product::front.categories.list_products', ['products' => $subCategory->products])
+    @endforeach
 
     <section class="section-text section-text-alt section-text-3">
         <div class="shell">

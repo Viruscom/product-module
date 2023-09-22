@@ -18,6 +18,9 @@
     use Illuminate\Database\Eloquent\Model;
     use Illuminate\Database\Eloquent\Relations\BelongsTo;
     use Illuminate\Database\Eloquent\Relations\HasMany;
+    use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+    use Modules\Product\Models\Admin\ProductAttribute\ProductAttribute;
+    use Modules\Product\Models\Admin\ProductAttribute\ProductAttributePivot;
     use Modules\Product\Models\Admin\Products\Product;
 
     class Category extends Model implements TranslatableContract, ImageModelInterface
@@ -145,5 +148,17 @@
         public function getUrl($languageSlug)
         {
             return url($languageSlug . '/' . $this->translate($languageSlug)->url);
+        }
+
+        public function productAttributes(): HasManyThrough
+        {
+            return $this->hasManyThrough(
+                ProductAttribute::class,
+                ProductAttributePivot::class,
+                'product_category_id',
+                'id',
+                'id',
+                'pattr_id'
+            )->orderBy('position')->with('translations');
         }
     }

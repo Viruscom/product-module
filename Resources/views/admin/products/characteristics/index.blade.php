@@ -5,7 +5,7 @@
     @include('admin.notify')
     @include('admin.partials.modals.delete_confirm')
 
-    @include('admin.partials.index.top_search_with_mass_buttons', ['mainRoute' => 'products.characteristics'])
+    @include('admin.partials.index.top_search_with_mass_buttons', ['mainRoute' => 'product_characteristics'])
 
     <div class="row">
         <div class="col-xs-12">

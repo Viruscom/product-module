@@ -2,7 +2,7 @@
 @section('content')
     @include('product::admin.products.characteristics.breadcrumbs')
     @include('admin.notify')
-    <form action="{{ route('admin.products.characteristics-by-product.update', ['id'=> $mainProduct->id]) }}" method="POST">
+    <form action="{{ route('admin.product_characteristics-by-product.update', ['id'=> $mainProduct->id]) }}" method="POST">
         @csrf
         <div class="col-xs-12 p-0">
             <div class="bg-grey top-search-bar">

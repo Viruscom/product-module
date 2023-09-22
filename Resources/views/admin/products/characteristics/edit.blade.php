@@ -3,7 +3,7 @@
 @section('content')
     @include('product::admin.products.characteristics.breadcrumbs')
     @include('admin.notify')
-    <form class="my-form" action="{{ route('admin.products.characteristics.update', ['id'=>$productCharacteristic->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">
+    <form class="my-form" action="{{ route('admin.product_characteristics.update', ['id'=>$productCharacteristic->id]) }}" method="POST" data-form-type="store" enctype="multipart/form-data">
         <div class="col-xs-12 p-0">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="position" value="{{(old('position')) ?: $productCharacteristic->position}}">

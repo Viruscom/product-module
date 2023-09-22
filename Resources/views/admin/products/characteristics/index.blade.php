@@ -32,19 +32,19 @@
                             <td class="width-2-percent">{{$i}}</td>
                             <td>{{ $characteristic->title}}</td>
                             <td class="pull-right">
-                                <a href="{{ route('admin.products.characteristics.edit',['id'=>$characteristic->id]) }}" class="btn green" role="button"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="{{ route('admin.product_characteristics.edit',['id'=>$characteristic->id]) }}" class="btn green" role="button"><i class="fas fa-pencil-alt"></i></a>
                                 @if(!$characteristic->active)
-                                    <a href="{{ route('admin.products.characteristics.changeStatus',['id'=>$characteristic->id, 'active'=>1]) }}" role="button" class="btn light-grey-eye visibility-activate"><i class="far fa-eye-slash"></i></a>
+                                    <a href="{{ route('admin.product_characteristics.changeStatus',['id'=>$characteristic->id, 'active'=>1]) }}" role="button" class="btn light-grey-eye visibility-activate"><i class="far fa-eye-slash"></i></a>
                                 @else
-                                    <a href="{{ route('admin.products.characteristics.changeStatus',['id'=>$characteristic->id, 'active'=>0]) }}" role="button" class="btn grey-eye visibility-unactive"><i class="far fa-eye"></i></a>
+                                    <a href="{{ route('admin.product_characteristics.changeStatus',['id'=>$characteristic->id, 'active'=>0]) }}" role="button" class="btn grey-eye visibility-unactive"><i class="far fa-eye"></i></a>
                                 @endif
                                 @if($i !== 1)
-                                    <a href="{{ route('admin.products.characteristics.position-up', ['id'=>$characteristic->id]) }}" role="button" class="move-up btn yellow"><i class="fas fa-angle-up"></i></a>
+                                    <a href="{{ route('admin.product_characteristics.position-up', ['id'=>$characteristic->id]) }}" role="button" class="move-up btn yellow"><i class="fas fa-angle-up"></i></a>
                                 @endif
                                 @if($i != count($characteristics))
-                                    <a href="{{ route('admin.products.characteristics.position-down', ['id'=>$characteristic->id]) }}" role="button" class="move-down btn yellow"><i class="fas fa-angle-down"></i></a>
+                                    <a href="{{ route('admin.product_characteristics.position-down', ['id'=>$characteristic->id]) }}" role="button" class="move-down btn yellow"><i class="fas fa-angle-down"></i></a>
                                 @endif
-                                <a href="{{ route('admin.products.characteristics.delete', ['id'=>$characteristic->id]) }}" class="btn red btn-delete-confirm tooltips" data-toggle="confirmation"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{ route('admin.product_characteristics.delete', ['id'=>$characteristic->id]) }}" class="btn red btn-delete-confirm tooltips" data-toggle="confirmation"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                             <?php $i++; ?>

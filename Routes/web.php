@@ -149,8 +149,8 @@
                 Route::get('combinations', [ProductCombinationsController::class, 'combinationsByProductId'])->name('admin.products.combinations-by-product');
                 /* Product characteristics for one product */
                 Route::group(['prefix' => 'characteristics'], static function () {
-                    Route::get('/', [ProductCharacteristicsController::class, 'characteristicsByProductId'])->name('admin.products.characteristics-by-product');
-                    Route::post('/', [ProductCharacteristicsController::class, 'characteristicsByProductIdUpdate'])->name('admin.products.characteristics-by-product.update');
+                    Route::get('/', [ProductCharacteristicsController::class, 'characteristicsByProductId'])->name('admin.product_characteristics-by-product');
+                    Route::post('/', [ProductCharacteristicsController::class, 'characteristicsByProductIdUpdate'])->name('admin.product_characteristics-by-product.update');
                 });
             });
         });
@@ -198,24 +198,24 @@
         });
         /* Product characteristics */
         Route::group(['prefix' => 'product_characteristics'], static function () {
-            Route::get('/', [ProductCharacteristicsController::class, 'index'])->name('admin.products.characteristics.index');
-            Route::get('/create', [ProductCharacteristicsController::class, 'create'])->name('admin.products.characteristics.create');
-            Route::post('/store', [ProductCharacteristicsController::class, 'store'])->name('admin.products.characteristics.store');
+            Route::get('/', [ProductCharacteristicsController::class, 'index'])->name('admin.product_characteristics.index');
+            Route::get('/create', [ProductCharacteristicsController::class, 'create'])->name('admin.product_characteristics.create');
+            Route::post('/store', [ProductCharacteristicsController::class, 'store'])->name('admin.product_characteristics.store');
 
             Route::group(['prefix' => 'multiple'], static function () {
-                Route::get('active/{active}', [ProductCharacteristicsController::class, 'activeMultiple'])->name('admin.products.characteristics.active-multiple');
-                Route::get('delete', [ProductCharacteristicsController::class, 'deleteMultiple'])->name('admin.products.characteristics.delete-multiple');
+                Route::get('active/{active}', [ProductCharacteristicsController::class, 'activeMultiple'])->name('admin.product_characteristics.active-multiple');
+                Route::get('delete', [ProductCharacteristicsController::class, 'deleteMultiple'])->name('admin.product_characteristics.delete-multiple');
             });
 
             Route::group(['prefix' => '{id}'], static function () {
-                Route::get('edit', [ProductCharacteristicsController::class, 'edit'])->name('admin.products.characteristics.edit');
-                Route::post('update', [ProductCharacteristicsController::class, 'update'])->name('admin.products.characteristics.update');
-                Route::get('delete', [ProductCharacteristicsController::class, 'delete'])->name('admin.products.characteristics.delete');
-                Route::get('show', [ProductCharacteristicsController::class, 'show'])->name('admin.products.characteristics.show');
-                Route::get('/active/{active}', [ProductCharacteristicsController::class, 'active'])->name('admin.products.characteristics.changeStatus');
-                Route::get('/active/single/{active}', [ProductCharacteristicsController::class, 'active'])->name('admin.products.characteristics.single-changeStatus');
-                Route::get('position/up', [ProductCharacteristicsController::class, 'positionUp'])->name('admin.products.characteristics.position-up');
-                Route::get('position/down', [ProductCharacteristicsController::class, 'positionDown'])->name('admin.products.characteristics.position-down');
+                Route::get('edit', [ProductCharacteristicsController::class, 'edit'])->name('admin.product_characteristics.edit');
+                Route::post('update', [ProductCharacteristicsController::class, 'update'])->name('admin.product_characteristics.update');
+                Route::get('delete', [ProductCharacteristicsController::class, 'delete'])->name('admin.product_characteristics.delete');
+                Route::get('show', [ProductCharacteristicsController::class, 'show'])->name('admin.product_characteristics.show');
+                Route::get('/active/{active}', [ProductCharacteristicsController::class, 'active'])->name('admin.product_characteristics.changeStatus');
+                Route::get('/active/single/{active}', [ProductCharacteristicsController::class, 'active'])->name('admin.product_characteristics.single-changeStatus');
+                Route::get('position/up', [ProductCharacteristicsController::class, 'positionUp'])->name('admin.product_characteristics.position-up');
+                Route::get('position/down', [ProductCharacteristicsController::class, 'positionDown'])->name('admin.product_characteristics.position-down');
             });
         });
         /* Product combinations */

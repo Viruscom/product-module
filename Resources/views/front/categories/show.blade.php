@@ -42,10 +42,14 @@
         @endforeach
     </ul>
 
-    @include('product::front.categories.list_products', ['products' => $viewArray['currentModel']->parent->products])
+    @if($viewArray['currentModel']->parent->products->isNotEmpty())
+        @include('product::front.categories.list_products', ['products' => $viewArray['currentModel']->parent->products])
+    @endif
 
     @foreach($subCategories as $subCategory)
-        @include('product::front.categories.list_products', ['products' => $subCategory->products])
+        @if($subCategory->products->isNotEmpty())
+            @include('product::front.categories.list_products', ['products' => $subCategory->products])
+        @endif
     @endforeach
 
     <section class="section-text section-text-alt section-text-3">

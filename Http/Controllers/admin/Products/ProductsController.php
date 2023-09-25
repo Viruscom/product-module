@@ -42,7 +42,9 @@
 
             Product::cacheUpdate();
 
-            $product->storeAndAddNew($request);
+            if ($request->has('submitaddnew')) {
+                return redirect()->back()->with('success-message', 'admin.common.successful_create');
+            }
 
             return redirect()->route('admin.products.index_by_category', ['category_id' => $product->category->id])->with('success-message', trans('admin.common.successful_create'));
         }

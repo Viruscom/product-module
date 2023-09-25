@@ -46,7 +46,9 @@
 
             ProductCharacteristic::cacheUpdate();
 
-            $productCharacteristic->storeAndAddNew($request);
+            if ($request->has('submitaddnew')) {
+                return redirect()->back()->with('success-message', 'admin.common.successful_create');
+            }
 
             return redirect()->route('admin.product_characteristics.index')->with('success-message', trans('admin.common.successful_create'));
         }

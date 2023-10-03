@@ -34,7 +34,7 @@
                                     {{ $attribute->title }}
                                 </td>
                                 <td class="pull-right">
-                                    <a class="btn purple-a" href="{{ route('admin.product-attribute.values.index', ['id' => $attribute->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('product::admin.product_categories.show_sub_categories')"><i class="fa fa-bars"></i></a>
+                                    <a class="btn purple-a" href="{{ route('admin.product-attribute.values.index', ['id' => $attribute->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('product::admin.product_attributes.attribute_values')"><i class="fa fa-bars"></i></a>
 
                                     @include('admin.partials.index.action_buttons', ['mainRoute' => Request::segment(3), 'models' => $productAttributes, 'model' => $attribute, 'showInPublicModal' => false])
                                 </td>

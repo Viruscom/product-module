@@ -130,6 +130,10 @@
             }
             SeoHelper::setSeoFields($this, $seo->translate($languageSlug));
         }
+        public function getActiveProducts(): HasMany
+        {
+            return $this->hasMany(Product::class, 'category_id', 'id')->where('active', true)->orderBy('position');
+        }
         public function products(): HasMany
         {
             return $this->hasMany(Product::class, 'category_id', 'id');

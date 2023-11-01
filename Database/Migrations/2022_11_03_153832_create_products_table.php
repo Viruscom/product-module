@@ -23,8 +23,8 @@
                 $table->integer('position');
                 $table->integer('creator_user_id');
                 $table->integer('units_in_stock')->default(1);
-                $table->decimal('supplier_delivery_price', 10, 2)->default(0);
-                $table->decimal('price', 10, 2)->nullable()->default(0);
+                $table->decimal('supplier_delivery_price', 10, 3)->default(0);
+                $table->decimal('price', 10, 3)->nullable()->default(0);
                 $table->string('barcode', 191)->nullable();
                 $table->string('sku', 191)->nullable();
                 $table->string('ean_code', 191)->nullable();

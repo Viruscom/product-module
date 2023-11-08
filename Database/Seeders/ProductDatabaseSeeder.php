@@ -1,18 +1,21 @@
 <?php
 
-namespace Modules\Product\Database\Seeders;
+    namespace Modules\Product\Database\Seeders;
 
-use Illuminate\Database\Seeder;
+    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Seeder;
 
-class ProductDatabaseSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    class ProductDatabaseSeeder extends Seeder
     {
-        //Model::unguard();
+        /**
+         * Run the database seeds.
+         *
+         * @return void
+         */
+        public function run()
+        {
+            Model::unguard();
+
+            $this->call(ProductBrandsSpecialPageSeeder::class);
+        }
     }
-}

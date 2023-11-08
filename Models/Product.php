@@ -201,6 +201,14 @@
                     abort(404);
             }
         }
+        public static function getProductBrandsSpecialPage($viewArray)
+        {
+            return view('product::front.product_special_page', [
+                'viewArray' => $viewArray,
+                'brands'    => Brand::where('active', true)->orderBy('position', 'asc')->get()
+            ]);
+        }
+
         public function updatedPosition($request)
         {
             if (!$request->has('position') || is_null($request->position) || $request->position == $this->position) {

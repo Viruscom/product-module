@@ -22,7 +22,7 @@
                 $table->foreign('brand_id')->references('id')->on('product_brands')->onDelete('cascade')->onUpdate('cascade');
                 $table->integer('position');
                 $table->integer('creator_user_id');
-                $table->integer('units_in_stock')->default(1);
+                $table->bigInteger('units_in_stock')->default(1);
                 $table->decimal('supplier_delivery_price', 10, 3)->default(0);
                 $table->decimal('price', 10, 3)->nullable()->default(0);
                 $table->string('barcode', 191)->nullable();

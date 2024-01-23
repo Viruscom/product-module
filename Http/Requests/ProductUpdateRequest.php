@@ -54,7 +54,17 @@
             $trim_if_string = function ($var) {
                 return is_string($var) ? trim($var) : $var;
             };
-            $this->merge(array_map($trim_if_string, $this->all()));
+            $formatted_data = array_map($trim_if_string, $this->all());
+
+            // Преобразуване на запетаи в точки за supplier_delivery_price и price
+            if (isset($formatted_data['supplier_delivery_price'])) {
+                $formatted_data['supplier_delivery_price'] = str_replace(',', '.', $formatted_data['supplier_delivery_price']);
+            }
+            if (isset($formatted_data['price'])) {
+                $formatted_data['price'] = str_replace(',', '.', $formatted_data['price']);
+            }
+
+            $this->merge($formatted_data);
         }
         public function messages(): array
         {

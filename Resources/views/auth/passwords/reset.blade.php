@@ -1,4 +1,4 @@
-@extends('layouts.front.app')
+@extends('layouts.front.app', ['headerShrink' => 'header-alt shrink'])
 
 @section('content')
     <div class="page-wrapper" style="display: flex;align-items: center;justify-content: center;">
@@ -6,7 +6,6 @@
             @include('admin.notify')
             <form method="post" class="form-alt selected" id="form-login" action="{{ route('shop.password.update', ['languageSlug' => $languageSlug]) }}">
                 @csrf
-
                 <input type="hidden" name="token" value="{{ $token }}">
 
                 <div class="form-head">
@@ -85,7 +84,7 @@
 
                 <div class="form-footer">
                     <button type="submit" class="submit-button">{{ __('shop::front.login.reset_password_btn') }}</button>
-                   </div>
+                </div>
             </form>
         </div>
     </div>

@@ -1,4 +1,4 @@
-@extends('layouts.front.app')
+@extends('layouts.front.app', ['headerShrink' => 'header-alt shrink'])
 
 @section('content')
     <div class="container">
@@ -6,7 +6,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Confirm Your Email Address') }}</div>
-
                     <div class="card-body">
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">

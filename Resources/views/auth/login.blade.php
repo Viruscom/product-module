@@ -1,6 +1,7 @@
-@extends('layouts.front.app')
+@extends('layouts.front.app', ['headerShrink' => 'header-alt shrink'])
 
 @section('content')
+    @include('shop::front.partials.registered_user_head')
     <div class="page-wrapper" style="display: flex;align-items: center;justify-content: center;">
         <div class="access-forms" style="width: 300px;margin: 90px 0px;">
             @include('admin.notify')

@@ -1,4 +1,4 @@
-@extends('layouts.front.app')
+@extends('layouts.front.app', ['headerShrink' => 'header-alt shrink'])
 
 @section('content')
     <div class="page-wrapper" style="display: flex;align-items: center;justify-content: center;">
@@ -9,7 +9,6 @@
                 <div class="form-head">
                     <h3>{{ __('shop::front.login.forgot_password') }}</h3>
                 </div>
-
                 <div class="form-body">
 
                     <div class="form-row">

@@ -1,4 +1,4 @@
-@extends('layouts.front.app')
+@extends('layouts.front.app', ['headerShrink' => 'header-alt shrink'])
 
 @section('content')
     <div class="page-wrapper" style="display: flex;align-items: center;justify-content: center;">
@@ -25,7 +25,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="form-row">
                         <label class="form-label" for="last_name">
                             {{ __('shop::front.login.last_name') }}
@@ -59,6 +58,7 @@
                     <div class="form-row">
                         <label class="form-label" for="phone">
                             {{ __('shop::front.login.phone') }}
+                            <span class="asterisk">*</span>
                         </label>
                         <div class="input-container">
                             <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" autocomplete="tel">
@@ -97,21 +97,35 @@
 
                 <div class="form-footer">
                     <div class="checkboxes-wrapper">
-                        <label class="checkbox-wrapper">
-                            <input type="checkbox" id="terms">
+                        @if(!is_null($termsOfUse))
+                            @php
+                                $termsOfUseTranslated = $termsOfUse->parent->translate($languageSlug);
+                            @endphp
+                            @if(!is_null($termsOfUseTranslated))
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="terms">
 
-                            <span class="checkmark"></span>
+                                    <span class="checkmark"></span>
 
-                            <span class="check-text">Прочетох и съм съгласен с това, което е описано в  <a href="https://www.almatherapy.bg/bg/law_page/obshti-usloviya" target="_blank"><strong>Общи условия</strong></a></span>
-                        </label>
+                                    <span class="check-text">Прочетох и съм съгласен с това, което е описано в  <a href="{{ $termsOfUseTranslated->parent->href() }}" target="_blank"><strong>{{ $termsOfUseTranslated->title }}</strong></a></span>
+                                </label>
+                            @endif
+                        @endif
 
-                        <label class="checkbox-wrapper">
-                            <input type="checkbox" id="privacy">
+                        @if(!is_null($privacyPolicy))
+                            @php
+                                $privacyPolicyTranslated = $privacyPolicy->parent->translate($languageSlug);
+                            @endphp
+                            @if(!is_null($privacyPolicyTranslated))
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="privacy">
 
-                            <span class="checkmark"></span>
+                                    <span class="checkmark"></span>
 
-                            <span class="check-text">Прочетох и съм съгласен с това, което е описано в  <a href="https://www.almatherapy.bg/bg/law_page/politiki-za-poveritelnost" target="_blank"><strong>Политики за поверителност</strong></a></span>
-                        </label>
+                                    <span class="check-text">Прочетох и съм съгласен с това, което е описано в  <a href="{{ $privacyPolicyTranslated->parent->href() }}" target="_blank"><strong>{{ $privacyPolicyTranslated->title }}</strong></a></span>
+                                </label>
+                            @endif
+                        @endif
                     </div>
                     <button type="submit" class="submit-button">{{ __('shop::front.login.register_submit') }}</button>
 

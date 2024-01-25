@@ -30,13 +30,21 @@
         public function rules(): array
         {
             $this->trimInput();
+            $formatted_data = $this->all();
+
             $array = [
                 'category_id' => 'required',
                 //                'measure_unit_id' => ['required', 'integer', Rule::exists('measure_units', 'id')],
                 'brand_id'    => 'required',
-                //            'supplier_delivery_price' => 'required',
-                //                'price'           => ['required', 'gt:supplier_delivery_price'],
-                //                'price'           => ['required'],
+                //                'supplier_delivery_price' => 'required',
+                //                'price'                   => [
+                //                    'required',
+                //                    function ($attribute, $value, $fail) use ($formatted_data) {
+                //                        if (isset($formatted_data['supplier_delivery_price']) && floatval($value) <= floatval($formatted_data['supplier_delivery_price'])) {
+                //                            $fail(trans('shop::admin.products.price_greater_than_supplier_delivery_price'));
+                //                        }
+                //                    }
+                //                ],
                 //            'units_in_stock'          => ['required', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
                 'weight'      => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
                 'width'       => ['nullable', 'min:0.01', 'max:99999.99', 'regex:/^\d+(\.\d{1,2})?$/'],
@@ -59,9 +67,12 @@
             // Преобразуване на запетаи в точки за supplier_delivery_price и price
             if (isset($formatted_data['supplier_delivery_price'])) {
                 $formatted_data['supplier_delivery_price'] = str_replace(',', '.', $formatted_data['supplier_delivery_price']);
+                $formatted_data['supplier_delivery_price'] = floatval($formatted_data['supplier_delivery_price']);
             }
+
             if (isset($formatted_data['price'])) {
                 $formatted_data['price'] = str_replace(',', '.', $formatted_data['price']);
+                $formatted_data['price'] = floatval($formatted_data['price']);
             }
 
             $this->merge($formatted_data);

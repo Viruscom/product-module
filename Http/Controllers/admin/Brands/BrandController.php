@@ -30,6 +30,7 @@
         }
         public function store(BrandStoreRequest $request, CommonControllerAction $action): RedirectResponse
         {
+            $action->validateImage($request, 'Product', 1);
             $brand = $action->doSimpleCreate(Brand::class, $request);
             $action->updateUrlCache($brand, BrandTranslation::class);
             $action->storeSeo($request, $brand, 'Brand');
@@ -108,12 +109,12 @@
             $brand = Brand::whereId($id)->with('translations')->first();
             MainHelper::goBackIfNull($brand);
 
+            $action->validateImage($request, 'Product', 1);
             $action->doSimpleUpdate(Brand::class, BrandTranslation::class, $brand, $request);
             $action->updateUrlCache($brand, BrandTranslation::class);
             $action->updateSeo($request, $brand, 'Brand');
 
             if ($request->has('image')) {
-                $request->validate(['image' => Brand::getFileRules()], [Brand::getUserInfoMessage()]);
                 $brand->saveFile($request->image);
             }
 

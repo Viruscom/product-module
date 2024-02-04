@@ -193,8 +193,10 @@
                 case 'Brand':
                     return view('product::front.brands.show', ['viewArray' => $viewArray]);
                 case 'Category':
-                    $categories = Admin\ProductCategory\Category::where('active', true)->where('main_category', null)->with('translations', 'subCategories')->orderBy('position', 'asc')->get();
-                    $brands     = Brand::where('active', true)->with('translations')->get();
+                    $categories = Admin\ProductCategory\Category::where('active', true)->whereNull('main_category')->with('translations')->with(['subCategories' => function ($q) {
+                        return $q->orderBy('position');
+                    }])->orderBy('position')->get();
+                    $brands     = Brand::where('active', true)->with('translations')->orderBy('position')->get();
 
                     return view('product::front.categories.show', ['viewArray' => $viewArray, 'categories' => $categories, 'brands' => $brands]);
                 default:

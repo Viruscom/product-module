@@ -60,7 +60,7 @@
 
             return view('product::admin.product_categories.edit', [
                 'category'      => $productCategory,
-                'categories'    => Category::where('main_category', $productCategory->main_category)->with('translations')->get(),
+                'categories'    => Category::where('main_category', $productCategory->main_category)->with('translations')->orderBy('position')->get(),
                 'languages'     => LanguageHelper::getActiveLanguages(),
                 'fileRulesInfo' => Category::getUserInfoMessage()
             ]);

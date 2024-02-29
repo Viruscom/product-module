@@ -93,7 +93,29 @@
 
             return $data;
         }
+        public static function generatePosition($request)
+        {
+            if (!isset($request->main_category)) {
+                $request['main_category'] = null;
+            }
+            $models = self::where('main_category', $request->main_category)->orderBy('position', 'desc')->get();
+            if (count($models) < 1) {
+                return 1;
+            }
+            if (!$request->has('position') || is_null($request['position'])) {
+                return $models->first()->position + 1;
+            }
 
+            if ($request['position'] > $models->first()->position) {
+                return $models->first()->position + 1;
+            }
+            $modelsToUpdate = self::where('main_category', $request->main_category)->where('position', '>=', $request['position'])->get();
+            foreach ($modelsToUpdate as $modelToUpdate) {
+                $modelToUpdate->update(['position' => $modelToUpdate->position + 1]);
+            }
+
+            return $request['position'];
+        }
         public function setKeys($array): array
         {
             //        Go to Shop Model
@@ -138,22 +160,18 @@
         {
             return $this->hasMany(Product::class, 'category_id', 'id');
         }
-
         public function mainCategory(): BelongsTo
         {
             return $this->belongsTo(Category::class, 'main_category', 'id');
         }
-
         public function subCategories(): HasMany
         {
             return $this->hasMany(Category::class, 'main_category');
         }
-
         public function getUrl($languageSlug)
         {
             return url($languageSlug . '/' . $this->translate($languageSlug)->url);
         }
-
         public function productAttributes(): HasManyThrough
         {
             return $this->hasManyThrough(
@@ -164,5 +182,31 @@
                 'id',
                 'pattr_id'
             )->orderBy('position')->with('translations');
+        }
+        
+        public function updatedPosition($request)
+        {
+            if (!$request->has('position') || is_null($request->position) || $request->position == $this->position) {
+                return $this->position;
+            }
+            if (!isset($request->main_category)) {
+                $request['main_category'] = null;
+            }
+            $maxPosition = self::where('main_category', $this->main_category)->max('position');
+            $minPosition = 1;
+
+            $newPosition = max($minPosition, min($request->position, $maxPosition));
+            $query       = self::where('main_category', $this->main_category)->where('id', '<>', $this->id);
+
+            if ($newPosition > $this->position) {
+                $query->whereBetween('position', [$this->position + 1, $newPosition])->decrement('position');
+            } elseif ($newPosition < $this->position) {
+                $query->whereBetween('position', [$newPosition, $this->position - 1])->increment('position');
+            }
+
+            $this->position = $newPosition;
+            $this->save();
+
+            return $this->position;
         }
     }

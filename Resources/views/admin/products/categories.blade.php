@@ -16,7 +16,7 @@
     @include('admin.notify')
     <div class="col-md-12 m-b-10">
         <div class="form-group">
-            <label class="control-label page-label col-md-3"><span class="text-purple">* </span>Категория:</label>
+            <label class="control-label page-label col-md-3"><span class="text-purple">* </span>{{ __('product::admin.products.category') }}:</label>
             <div class="col-md-4">
                 <select class="form-control select2 products-select select2-hidden-accessible" name="category_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
                     <option value="" data-select2-id="3">@lang('admin.common.please_select')</option>

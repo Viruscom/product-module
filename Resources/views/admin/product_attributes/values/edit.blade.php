@@ -62,7 +62,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-xs-12">
-                <h4>Редактиране на стойност към атрибут: {{ $productAttribute->title }}</h4>
+                <h4>{{ __('product::admin.product_attribute_values.edit') }}: {{ $productAttribute->title }}</h4>
             </div>
             <div class="col-sm-12 col-xs-12">
                 <ul class="nav nav-tabs">
@@ -90,7 +90,7 @@
                 @if($productAttribute->type == 3)
                     <div class="col-sm-6 col-xs-12">
                         <div class="form-group @if($errors->has('color_picker_color')) has-error @endif">
-                            <label for="text-field" class="control-label p-b-10">Цвят:</label>
+                            <label for="text-field" class="control-label p-b-10">{{ __('product::admin.product_attribute_values.color') }}:</label>
                             <input type="text" id="text-field" class="form-control demo" value="{{ old('color_picker_color') ?: $productAttributeValue->color_picker_color }}" name="color_picker_color" required>
                             @if($errors->has('color_picker_color'))
                                 <span class="help-block">{{ trans($errors->first('color_picker_color')) }}</span>

@@ -48,7 +48,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <h3>Продукти към категория: <strong>{{ $productCategory->title }}</strong></h3>
+            <h3>{{ __('product::admin.products.products_to_category') }}: <strong>{{ $productCategory->title }}</strong></h3>
         </div>
         <div class="col-xs-12">
             <div class="table-responsive">
@@ -78,8 +78,8 @@
                                 </td>
                                 <td class="pull-right">
                                     <a href="{{ route('admin.products.send-to-adboxes', ['id' => $product->id]) }}" class="btn btn-info tooltips" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="@lang('product::admin.products.make_adbox')"><i class="fas fa-ad"></i></a>
-                                    <a class="btn purple-a tooltips" href="{{ route('admin.product_characteristics-by-product', ['id' => $product->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Продуктови характеристики"><img src="{{ asset('admin/assets/images/product_characteristics.svg') }}" alt="Характеристики" width="16"></a>
-                                    <a class="btn purple-a tooltips" href="{{ route('admin.products.combinations-by-product', ['id' => $product->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Продуктови комбинации"><img src="{{ asset('admin/assets/images/product_combinations.svg') }}" alt="Комбинации" width="16"></a>
+                                    <a class="btn purple-a tooltips" href="{{ route('admin.product_characteristics-by-product', ['id' => $product->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="{{ __('product::admin.product_characteristics.product_characteristics') }}"><img src="{{ asset('admin/assets/images/product_characteristics.svg') }}" alt="Характеристики" width="16"></a>
+                                    <a class="btn purple-a tooltips" href="{{ route('admin.products.combinations-by-product', ['id' => $product->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="{{ __('product::admin.product_combinations.product_combinations') }}"><img src="{{ asset('admin/assets/images/product_combinations.svg') }}" alt="Комбинации" width="16"></a>
 
                                     @include('admin.partials.index.action_buttons', ['mainRoute' => Request::segment(3), 'models' => $products, 'model' => $product, 'showInPublicModal' => false])
                                 </td>

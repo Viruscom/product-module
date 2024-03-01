@@ -25,7 +25,7 @@
                         @endphp
                         <div id="{{$language->code}}" class="tab-pane fade in @if($language->code === config('default.app.language.code')) active @endif">
                             <div class="form-group @if($errors->has($langTitle)) has-error @endif">
-                                <label class="control-label p-b-10">Заглавие (<span class="text-uppercase">{{$language->code}}</span>):</label>
+                                <label class="control-label p-b-10">{{ __('shop::admin.common.title') }} (<span class="text-uppercase">{{$language->code}}</span>):</label>
                                 <input class="form-control" type="text" name="{{$langTitle}}" value="{{ old($langTitle) }}">
                                 @if($errors->has($langTitle))
                                     <span class="help-block">{{ trans($errors->first($langTitle)) }}</span>
@@ -56,7 +56,7 @@
                                     @endforeach
                                 @endif
                             @empty
-                                <div class="alert alert-warning">Няма добавени или активни категории</div>
+                                <div class="alert alert-warning">{{ __('product::admin.product_categories.no_active_categories') }}</div>
                             @endforelse
                         </div>
                         <div style="display: flex;" class="m-t-20">
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             @empty
-                                <div class="alert alert-warning">Няма добавени или активни категории</div>
+                                <div class="alert alert-warning">{{ __('product::admin.product_categories.no_active_categories') }}</div>
                             @endforelse
                         </div>
                         <hr>

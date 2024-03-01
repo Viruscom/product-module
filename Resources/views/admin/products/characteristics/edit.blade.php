@@ -30,7 +30,7 @@
                         @endphp
                         <div id="{{$language->code}}" class="tab-pane fade in @if($language->code === config('default.app.language.code')) active @endif">
                             <div class="form-group @if($errors->has($langTitle)) has-error @endif">
-                                <label class="control-label p-b-10">Заглавие (<span class="text-uppercase">{{$language->code}}</span>):</label>
+                                <label class="control-label p-b-10">{{ __('shop::admin.common.title') }} (<span class="text-uppercase">{{$language->code}}</span>):</label>
                                 <input class="form-control" type="text" name="{{$langTitle}}" value="{{ old($langTitle) ?: $productCharacteristicTranslation->title }}">
                                 @if($errors->has($langTitle))
                                     <span class="help-block">{{ trans($errors->first($langTitle)) }}</span>
@@ -43,13 +43,13 @@
                     <div class="form-body">
                         <hr>
                         <div style="display: flex; justify-content: space-between;border-bottom: 2px solid #cecece;">
-                            <h4>Асоциирай към продуктова категория</h4>
+                            <h4>{{ __('product::admin.product_categories.associate') }}</h4>
                             <div style="display: flex;">
                                 <div class="checkbox-all pull-left p-10 p-l-0">
                                     <div class="pretty p-default p-square">
-                                        <input type="checkbox" id="selectAll" class="tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="Маркира/Демаркира всички катеегории" data-trigger="hover"/>
+                                        <input type="checkbox" id="selectAll" class="tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="{{ __('product::admin.product_categories.mark_unmark') }}" data-trigger="hover"/>
                                         <div class="state p-primary">
-                                            <label>Маркирай/Демаркирай всички категории</label>
+                                            <label>{{ __('product::admin.product_categories.mark_unmark') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                     @endforeach
                                 @endif
                             @empty
-                                <div class="alert alert-warning">Няма добавени или активни категории</div>
+                                <div class="alert alert-warning">{{ __('product::admin.product_categories.no_active_categories') }}</div>
                             @endforelse
                         </div>
                         <hr>

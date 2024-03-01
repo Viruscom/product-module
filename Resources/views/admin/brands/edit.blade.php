@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-warning"><strong>Внимание! </strong>Промяната на загланието (името) или на активността (видимостта) на марката ще се отрази в sitemap-a на сайта и може да доведе до промени в индексирането на Вашия сайт от търсачките.</div>
+                <div class="alert alert-warning">{!! __('admin.common.warning_title_change') !!}</div>
             </div>
         </div>
         <div class="row">
@@ -84,19 +84,19 @@
                         @include('admin.partials.on_edit.active_checkbox', ['model' => $brand])
                         <hr>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Позиция в сайта:</label>
+                            <label class="control-label col-md-3">{{ __('admin.position_in_site') }}:</label>
                             <div class="col-md-6">
                                 <p class="position-label">№ {{ $brand->position }}</p>
-                                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">Моля, изберете позиция</a>
-                                <p class="help-block">(ако не изберете позиция, записът се добавя като последен)</p>
+                                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal">{{ __('admin.please_choose_position') }}</a>
+                                <p class="help-block">{{ __('admin.position_description') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" name="submit" value="submit" class="btn save-btn margin-bottom-10"><i class="fas fa-save"></i> запиши</button>
-                                <a href="{{ url()->previous() }}" role="button" class="btn back-btn margin-bottom-10"><i class="fa fa-reply"></i> назад</a>
+                                <button type="submit" name="submit" value="submit" class="btn save-btn margin-bottom-10"><i class="fas fa-save"></i> {{ __('admin.common.save') }}</button>
+                                <a href="{{ url()->previous() }}" role="button" class="btn back-btn margin-bottom-10"><i class="fa fa-reply"></i> {{ __('admin.common.back') }}</a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close text-purple" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Изберете позиция</h4>
+                            <h4 class="modal-title">{{ __('admin.choose_position') }}</h4>
                         </div>
                         <div class="modal-body">
                             <table class="table table-striped table-hover table-positions">
@@ -137,8 +137,8 @@
                             <div class="form-actions">
                                 <div class="row">
                                     <div class="col-md-offset-3 col-md-9">
-                                        <a href="#" class="btn save-btn margin-bottom-10 accept-position-change" data-dismiss="modal"><i class="fas fa-save"></i> потвърди</a>
-                                        <a role="button" class="btn back-btn margin-bottom-10 cancel-position-change" current-position="{{ $brand->position }}" data-dismiss="modal"><i class="fa fa-reply"></i> назад</a>
+                                        <a href="#" class="btn save-btn margin-bottom-10 accept-position-change" data-dismiss="modal"><i class="fas fa-save"></i> {{ __('admin.common.apply') }}</a>
+                                        <a role="button" class="btn back-btn margin-bottom-10 cancel-position-change" current-position="{{ $brand->position }}" data-dismiss="modal"><i class="fa fa-reply"></i> {{ __('admin.common.back') }}</a>
                                     </div>
                                 </div>
                             </div>

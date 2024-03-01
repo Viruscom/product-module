@@ -6,13 +6,13 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 data-toggle="collapse" data-parent="#accordion-{{$language->id}}" href="#collapse-{{$language->id}}-{{$i}}" class="panel-title">
-            <a href="#">Допълнително заглавие и текст {{ $i }} {{ old($langTitleAdditional) ? old($langTitleAdditional) : (!is_null($productTranslation) ? '| '.$productTranslation->{'title_additional_'.$fieldNumberWord} : '') }}</a>
+            <a href="#">{{ __('admin.common.additional_title_and_text') }} {{ $i }} {{ old($langTitleAdditional) ? old($langTitleAdditional) : (!is_null($productTranslation) ? '| '.$productTranslation->{'title_additional_'.$fieldNumberWord} : '') }}</a>
         </h4>
     </div>
     <div id="collapse-{{$language->id}}-{{$i}}" class="panel-collapse collapse">
         <div class="panel-body">
             <div class="form-group @if($errors->has($langTitleAdditional)) has-error @endif">
-                <label class="control-label p-b-10">Заглавие (<span class="text-uppercase">{{$language->code}}</span>):</label>
+                <label class="control-label p-b-10">@lang('admin.title') (<span class="text-uppercase">{{$language->code}}</span>):</label>
                 <input class="form-control" type="text" name="{{$langTitleAdditional}}" value="{{ old($langTitleAdditional) ? old($langTitleAdditional) : (!is_null($productTranslation) ? $productTranslation->{'title_additional_'.$fieldNumberWord} : '') }}">
                 @if($errors->has($langTitleAdditional))
                     <span class="help-block">{{ trans($errors->first($langTitleAdditional)) }}</span>

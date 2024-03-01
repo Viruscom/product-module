@@ -212,19 +212,19 @@
         <div class="bg-grey top-search-bar">
             <div class="checkbox-all pull-left p-10 p-l-0">
                 <div class="pretty p-default p-square">
-                    <input type="checkbox" id="selectAllCombos" class="tooltips" data-toggle="tooltip" data-placement="right" data-original-title="Маркира/Демаркира всички елементи" data-trigger="hover"/>
+                    <input type="checkbox" id="selectAllCombos" class="tooltips" data-toggle="tooltip" data-placement="right" data-original-title="{{ __('admin.common.mark_demark_all_elements') }}" data-trigger="hover"/>
                     <div class="state p-primary">
                         <label></label>
                     </div>
                 </div>
             </div>
             <div class="collapse-buttons pull-left p-7">
-                <a class="btn btn-xs expand-btn"><i class="fas fa-angle-down fa-2x" class="tooltips" data-toggle="tooltip" data-placement="right" data-original-title="Разпъва всички маркирани елементи"></i></a>
-                <a class="btn btn-xs collapse-btn hidden"><i class="fas fa-angle-up fa-2x" class="tooltips" data-toggle="tooltip" data-placement="right" data-original-title="Прибира всички маркирани елементи"></i></a>
+                <a class="btn btn-xs expand-btn"><i class="fas fa-angle-down fa-2x" class="tooltips" data-toggle="tooltip" data-placement="right" data-original-title="{{ __('admin.common.expand_all_marked_elements') }}"></i></a>
+                <a class="btn btn-xs collapse-btn hidden"><i class="fas fa-angle-up fa-2x" class="tooltips" data-toggle="tooltip" data-placement="right" data-original-title="{{ __('admin.common.collapse_all_marked_elements') }}"></i></a>
             </div>
             <div class="search pull-left hidden-xs">
                 <div class="input-group">
-                    <input type="text" name="search" class="form-control input-sm search-text" placeholder="Търси">
+                    <input type="text" name="search" class="form-control input-sm search-text" placeholder="{{ __('admin.common.search') }}">
                     <span class="input-group-btn">
 					<button class="btn btn-sm submit"><i class="fa fa-search"></i></button>
 				</span>
@@ -232,13 +232,13 @@
             </div>
 
             <div class="action-mass-buttons pull-right">
-                <div role="button" class="btn btn-lg tooltips green btn-offcanvas" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Създай нов">
+                <div role="button" class="btn btn-lg tooltips green btn-offcanvas" data-toggle="tooltip" data-placement="auto" title="" data-original-title="{{ __('admin.common.create_new') }}">
                     <i class="fas fa-plus"></i>
                 </div>
 
-                <a href="#" class="btn btn-lg btn-light-blue m-b-0 update-product-combo-mass-btn" role="button"><i class="fas fa-sync tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="Обнови промените"></i></a>
+                <a href="#" class="btn btn-lg btn-light-blue m-b-0 update-product-combo-mass-btn" role="button"><i class="fas fa-sync tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="{{ __('product::admin.product_combinations.update_changes') }}"></i></a>
 
-                <div role="button" class="btn btn-lg tooltips purple-btn btn-sku-offcanvas" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Генерирай SKU номера за продукт">
+                <div role="button" class="btn btn-lg tooltips purple-btn btn-sku-offcanvas" data-toggle="tooltip" data-placement="auto" title="" data-original-title="{{ __('product::admin.product_combinations.generate_sku') }}">
                     <img src="{{ asset('admin/assets/images/SKU_letters.svg') }}" height="20" alt="">
                 </div>
 
@@ -259,11 +259,11 @@
                         <th class="width-2-percent"></th>
                         <th class="width-2-percent">{{ __('admin.number') }}</th>
                         <th style="max-width: 250px;">{{ __('admin.title') }}</th>
-                        <th>Категория</th>
-                        {{--                        <th class="width-220">Количество</th>--}}
-                        <th class="width-220">Ед.цена</th>
+                        <th>{{ __('product::admin.product_combinations.category') }}</th>
+                        {{--                        <th class="width-220">{{ __('product::admin.product_combinations.quantity') }}</th>--}}
+                        <th class="width-220">{{ __('product::admin.product_combinations.unit_price') }}</th>
                         <th class="width-220">SKU</th>
-                        <th class="width-220">Статус</th>
+                        <th class="width-220">{{ __('product::admin.product_combinations.status') }}</th>
                         <th class="width-220 text-right">{{ __('admin.actions') }}</th>
                     </tr>
                     </thead>
@@ -317,7 +317,7 @@
                                     {{--                                        </label>--}}
                                     {{--                                    </td>--}}
                                     <td class="text-right">
-                                        <p class="m-b-0">Ед.цена: {{ $combination->price }}</p>
+                                        <p class="m-b-0">{{ __('product::admin.product_combinations.unit_price') }}: {{ $combination->price }}</p>
                                         <label>
                                             <input type="number" name="price" step="0.01" class="decimal text-right price-{{$combination->id}}" value="{{ old('price') ?? ($combination->price == '' ? '0.00': $combination->price) }}">
                                         </label>
@@ -329,7 +329,7 @@
                                         </label>
                                     </td>
                                     <td class="text-right">
-                                        <p class="m-b-0">Статус:
+                                        <p class="m-b-0">{{ __('product::admin.product_combinations.status') }}:
                                             @if(!is_null($combination->stock_status))
                                                 @lang('front.stock_status_'.$combination->stock_status)
                                             @endif
@@ -344,8 +344,8 @@
                                     </td>
                                     <td class="pull-right">
                                         <p></p>
-                                        <button type="submit" href="{{ route('admin.product-combinations.update', ['id'=> $combination->id]) }}" class="btn btn-light-blue m-b-0 update-product-combo-btn" role="button"><i class="fas fa-sync tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="Обнови промените"></i></button>
-                                        <a href="{{ route('admin.product-combinations.delete', ['id'=> $combination->id]) }}" class="btn red delete-product-combo-btn" data-toggle="confirmation"><i class="fas fa-trash-alt tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="Изтрий комбинацията"></i></a>
+                                        <button type="submit" href="{{ route('admin.product-combinations.update', ['id'=> $combination->id]) }}" class="btn btn-light-blue m-b-0 update-product-combo-btn" role="button"><i class="fas fa-sync tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="{{ __('product::admin.product_combinations.update_changes') }}"></i></button>
+                                        <a href="{{ route('admin.product-combinations.delete', ['id'=> $combination->id]) }}" class="btn red delete-product-combo-btn" data-toggle="confirmation"><i class="fas fa-trash-alt tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="{{ __('product::admin.product_combinations.delete') }}"></i></a>
                                     </td>
                                 </form>
                             </tr>
@@ -364,7 +364,7 @@
         </div>
     </div>
     <div class="offcanvas-wrapper hidden">
-        <div class="caption">Добавяне
+        <div class="caption">{{ __('product::admin.product_combinations.add') }}
             <span>X</span>
         </div>
         <form action="{{ route('admin.product-combinations.generate') }}" method="POST">
@@ -417,11 +417,11 @@
             </div>
             <div class="fields hidden">
                 <div class="mb-1 m-t-20">
-                    <label for="quantity" class="form-label w-100">Количество</label>
+                    <label for="quantity" class="form-label w-100">{{ __('product::admin.product_combinations.quantity') }}</label>
                     <input type="number" name="quantity" class="decimal form-control m-b-20" id="quantity" min="1" value="1" autocomplete="off">
                 </div>
                 <div class="mb-1">
-                    <label for="unit_price" class="form-label w-100">Единична цена</label>
+                    <label for="unit_price" class="form-label w-100">{{ __('product::admin.product_combinations.unit_price') }}</label>
                     <input type="text" name="price" class="decimal form-control m-b-20" id="unit_price" value="0.00" autocomplete="off">
                 </div>
                 <div class="mb-1">
@@ -429,7 +429,7 @@
                     <input type="text" name="sku" class="form-control m-b-20" id="sku" value="" autocomplete="off">
                 </div>
                 <div class="mb-1">
-                    <label for="sku" class="form-label w-100">Статус</label>
+                    <label for="sku" class="form-label w-100">{{ __('product::admin.product_combinations.status') }}</label>
                     <select id="stock_status" class="form-control m-b-20 w-100" name="stock_status" autocomplete="off">
                         <option value="1" {{(old('stock_status')) ? 'selected': ''}}>@lang('front.stock_status_1')</option>
                         <option value="2" {{(old('stock_status')) ? 'selected': ''}}>@lang('front.stock_status_2')</option>
@@ -441,26 +441,25 @@
             </div>
 
             <div style="margin-top: 20px;margin-bottom: 5px;">
-                <b>4. Герерирай комбинациите</b>
+                <b>4. {{ __('product::admin.product_combinations.generate_combination') }}</b>
             </div>
             <div class="actions hidden">
-                <button type="submit" class="btn btn-success generate-btn">Генерирай</button>
-                <div class="btn btn-default cancel-btn">Отказ</div>
+                <button type="submit" class="btn btn-success generate-btn">{{ __('product::admin.product_combinations.generate') }}</button>
+                <div class="btn btn-default cancel-btn">{{ __('product::admin.product_combinations.cancel') }}</div>
             </div>
         </form>
     </div>
 
-
     <div class="offcanvas-sku-wrapper hidden">
-        <div class="caption">SKU генератор
+        <div class="caption">{{ __('product::admin.product_combinations.sku_generator') }}
             <span>X</span>
         </div>
         <form action="{{ route('admin.product-combinations.generate-sku-numbers-by-product') }}" method="POST">
             @csrf
             <div class="m-b-10">
-                <label for="sku_product_id" class="form-label w-100" style="display: flex">1. Изберете продукт</label>
+                <label for="sku_product_id" class="form-label w-100" style="display: flex">1. {{ __('product::admin.product_combinations.choose_product') }}</label>
                 <select name="sku_product_id" class="select2 form-control m-b-20" style="display: flex;width: 100%" id="sku_product_id" required>
-                    <option value="">--- Моля, изберете ---</option>
+                    <option value="">{{ __('admin.common.please_select') }}</option>
                     @foreach($products as $product)
                         <option value="{{ $product->id }}">{{ $product->title }}</option>
                     @endforeach
@@ -468,13 +467,13 @@
             </div>
 
             <div class="m-b-10">
-                <label for="prefix" class="form-label w-100">2. Въведете префикс</label>
+                <label for="prefix" class="form-label w-100">2. {{ __('product::admin.product_combinations.add_prefix') }}</label>
                 <input type="text" name="prefix" class="form-control m-b-20" id="prefix" value="" autocomplete="off" required>
             </div>
 
             <div class="actions">
-                <button type="submit" class="btn btn-success">Генерирай</button>
-                <div class="btn btn-default cancel-sku-btn">Отказ</div>
+                <button type="submit" class="btn btn-success">{{ __('product::admin.product_combinations.generate') }}</button>
+                <div class="btn btn-default cancel-sku-btn">{{ __('product::admin.product_combinations.cancel') }}</div>
             </div>
         </form>
     </div>

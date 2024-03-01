@@ -42,7 +42,7 @@
                         @endphp
                         <div id="{{$language->code}}" class="tab-pane fade in @if($language->code === config('default.app.language.code')) active @endif">
                             <div class="form-group @if($errors->has($langTitle)) has-error @endif">
-                                <label class="control-label p-b-10">Заглавие (<span class="text-uppercase">{{$language->code}}</span>):</label>
+                                <label class="control-label p-b-10">@lang('admin.title') (<span class="text-uppercase">{{$language->code}}</span>):</label>
                                 <input class="form-control" type="text" name="{{$langTitle}}" value="{{ old($langTitle) }}">
                                 @if($errors->has($langTitle))
                                     <span class="help-block">{{ trans($errors->first($langTitle)) }}</span>
@@ -55,13 +55,13 @@
                     <div class="form-body">
                         <hr>
                         <div style="display: flex; justify-content: space-between;border-bottom: 2px solid #cecece;">
-                            <h4>Асоциирай към продуктова категория</h4>
+                            <h4>{{ __('product::admin.product_categories.associate') }}</h4>
                             <div style="display: flex;">
                                 <div class="checkbox-all pull-left p-10 p-l-0">
                                     <div class="pretty p-default p-square">
                                         <input type="checkbox" id="selectAll" class="tooltips" data-toggle="tooltip" data-placement="auto" data-original-title="Маркира/Демаркира всички катеегории" data-trigger="hover"/>
                                         <div class="state p-primary">
-                                            <label>Маркирай/Демаркирай всички категории</label>
+                                            <label>{{ __('product::admin.product_categories.mark_unmark') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -86,17 +86,17 @@
                                     @endforeach
                                 @endif
                             @empty
-                                <div class="alert alert-warning">Няма добавени или активни категории</div>
+                                <div class="alert alert-warning">{{ __('product::admin.product_categories.no_active_categories') }}</div>
                             @endforelse
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label for="select-id" class="control-label col-md-3">Тип:</label>
+                            <label for="select-id" class="control-label col-md-3">@lang('product::admin.product_attributes.type'):</label>
                             <div class="col-md-4">
                                 <select name="type" id="select-id" class="form-control">
-                                    <option value="1">Стойност</option>
-                                    <option value="2">Падащо меню</option>
-                                    <option value="3">Цвят или текстура</option>
+                                    <option value="1">@lang('product::admin.product_attributes.type_1')</option>
+                                    <option value="2">@lang('product::admin.product_attributes.type_2')</option>
+                                    <option value="3">@lang('product::admin.product_attributes.type_3')</option>
                                 </select>
                             </div>
                         </div>

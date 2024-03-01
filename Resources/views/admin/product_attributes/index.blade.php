@@ -80,7 +80,7 @@
                                 <td class="pull-right">
                                     @include('admin.partials.index.action_buttons', ['mainRoute' => Request::segment(3), 'models' => $productAttributes, 'model' => $attribute, 'showInPublicModal' => false])
 
-                                    <a class="btn purple-a" href="{{ route('products.attributes.values.index', ['attr_id'=> $attribute->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="Стойности на атрибута"><i class="fa fa-bars"></i></a>
+                                    <a class="btn purple-a" href="{{ route('products.attributes.values.index', ['attr_id'=> $attribute->id]) }}" role="button" data-toggle="tooltip" data-placement="auto" title="" data-original-title="{{ __('product::admin.product_attributes.values_tooltip') }}"><i class="fa fa-bars"></i></a>
 
                                     <a href="{{ route('products.attributes.edit',['id'=>$attribute->id]) }}" class="btn green" role="button"><i class="fas fa-pencil-alt"></i></a>
                                     @if($i !== 1)
@@ -95,11 +95,11 @@
                                 <?php $i++; ?>
                         @endforeach
                         <tr style="display: none;">
-                            <td colspan="4" class="no-table-rows">{{ trans('administration_messages.no_recourds_found') }}</td>
+                            <td colspan="4" class="no-table-rows">@lang('product::admin.product_attributes.no_records')</td>
                         </tr>
                     @else
                         <tr>
-                            <td colspan="4" class="no-table-rows">{{ trans('administration_messages.no_recourds_found') }}</td>
+                            <td colspan="4" class="no-table-rows">@lang('product::admin.product_attributes.no_records')</td>
                         </tr>
                     @endif
                     </tbody>

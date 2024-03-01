@@ -42,7 +42,7 @@
         @endif
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-warning"><strong>Внимание! </strong>Промяната на загланието (името) или на активността (видимостта) на марката ще се отрази в sitemap-a на сайта и може да доведе до промени в индексирането на Вашия сайт от търсачките.</div>
+                <div class="alert alert-warning">{{ __('admin.common.warning_title_change') }}</div>
             </div>
         </div>
         <div class="row">

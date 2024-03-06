@@ -125,9 +125,7 @@
         </div>
     </div>
 
-    <div class="page-gallery" data-aos="fade-up" data-aos-delay="100">
-        @include('front.partials.content.inner_gallery')
-    </div>
+    <x-inner-gallery/>
 
     @if(!is_null($product->getPreviousProductUrl($languageSlug)) || !is_null($product->getNextProductUrl($languageSlug)))
         <div class="page-nav">

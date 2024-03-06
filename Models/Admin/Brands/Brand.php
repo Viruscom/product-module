@@ -144,4 +144,17 @@
             }
             SeoHelper::setSeoFields($this, $seo->translate($languageSlug));
         }
+
+        public function getUrl()
+        {
+            if (!is_null($this->url)) {
+                if ($this->external_url) {
+                    return $this->url;
+                }
+
+                return url($this->url);
+            }
+
+            return '';
+        }
     }

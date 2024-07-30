@@ -1,0 +1,23 @@
+{
+    "name": "iwish/product-module",
+    "description": "",
+    "authors": [
+        {
+            "name": "test",
+            "email": "test@test.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Product\\": ""
+        }
+    },
+    "type": "laravel-module"
+}
